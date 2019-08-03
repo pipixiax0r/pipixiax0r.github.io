@@ -209,6 +209,226 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/取整/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pipixiax0r's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/03/取整/" class="post-title-link" itemprop="url">取整</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-03 08:07:51 / Modified: 08:19:13" itemprop="dateCreated datePublished" datetime="2019-08-03T08:07:51-07:00">2019-08-03</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法-数据结构/" itemprop="url" rel="index"><span itemprop="name">算法/数据结构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>在数据结构的二分查找中常常会遇到的问题，到底是向上取整还是向下取整，向上和向下之间如何进行转化？ ## 除法中的向上取整和向下取整的转化 ### 公式及证明 公式如下：</p>
+</blockquote>
+<p><span class="math display">\[
+\left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil
+\]</span>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/03/取整/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/出栈顺序与卡特兰数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pipixiax0r's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/03/出栈顺序与卡特兰数/" class="post-title-link" itemprop="url">出栈顺序与卡特兰数</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-03 07:50:38 / Modified: 08:05:47" itemprop="dateCreated datePublished" datetime="2019-08-03T07:50:38-07:00">2019-08-03</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法-数据结构/" itemprop="url" rel="index"><span itemprop="name">算法/数据结构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="不同出栈顺序的个数">不同出栈顺序的个数</h1>
+<blockquote>
+<p>N个不同元素依次进栈，能够得到多少种不同的出栈序列？</p>
+</blockquote>
+<p>首先，不同元素<strong>依次进栈</strong>，也就说明入栈<strong>顺序是固定的</strong>，我们知道栈的主要操作有3种：入栈、出栈、取栈顶，这里用不到取栈顶这种操作，也就只有入栈和出栈这两种</p>
+<p>我们可以用1表示入栈，用0表示出栈，那么这个问题就变成求1、0两个数字的组合问题，共有<span class="math inline">\(n \choose 2n\)</span> 种 (总共有2n个空位选择其中n个填入1，其余填入0)</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/03/出栈顺序与卡特兰数/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/邻接矩阵的乘法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,12 +465,27 @@
                 
               
 
-              <time title="Created: 2019-08-03 01:36:30 / Modified: 01:52:57" itemprop="dateCreated datePublished" datetime="2019-08-03T01:36:30-07:00">2019-08-03</time>
+              <time title="Created: 2019-08-03 01:36:30 / Modified: 08:05:24" itemprop="dateCreated datePublished" datetime="2019-08-03T01:36:30-07:00">2019-08-03</time>
             </span>
           
             
 
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法-数据结构/" itemprop="url" rel="index"><span itemprop="name">算法/数据结构</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           <br>
@@ -264,8 +499,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h1 id="邻接矩阵乘法">邻接矩阵乘法</h1>
+          <h1 id="邻接矩阵乘法">邻接矩阵乘法</h1>
 <p>设有一个矩阵<span class="math inline">\(M\)</span>，其矩阵表示如下： <span class="math display">\[
 \begin{bmatrix}
  0 &amp; 1 &amp; 1 &amp; 0\\ 
@@ -283,19 +517,15 @@
 \end{bmatrix}
 \]</span> <span class="math inline">\(M^2_{(i,j)}\)</span> 为<span class="math inline">\(M^2\)</span>的第<span class="math inline">\(i\)</span>行<span class="math inline">\(j\)</span>列所在的元素，<span class="math inline">\(M^2_{(i,j)}\)</span>可以理解为第<span class="math inline">\(i\)</span>个元素到第<span class="math inline">\(j\)</span>个元素长度为2路径条数。</p>
 <p>推广到<span class="math inline">\(M^n\)</span>的情况即，第<span class="math inline">\(i\)</span>个元素到第<span class="math inline">\(j\)</span>个元素长度为<span class="math inline">\(n\)</span>路径条数。</p>
-<h2 id="本质">本质</h2>
-<p>将矩阵表示为列向量形式，<span class="math inline">\(M=(V_1, V_2, ..., V_n)\)</span>，由于邻接矩阵是对称矩阵，所以有<span class="math inline">\(M^T=M\)</span>，即：<span class="math inline">\(M^2=M^TM=M \otimes M\)</span>，所以<span class="math inline">\(M^2\)</span>可表示为 <span class="math display">\[
-\begin{bmatrix}
- V_1V_1 &amp; V_1V_2 &amp; V_1V_3 &amp; V_1V_4\\ 
- V_2V_1 &amp; V_2V_2 &amp; V_2V_3 &amp; V_2V_4\\ 
- V_3V_1 &amp; V_3V_2 &amp; V_3V_3 &amp; V_3V_4\\ 
- V_4V_1 &amp; V_4V_2 &amp; V_4V_3 &amp; V_4V_4\\
-\end{bmatrix}
-\]</span> <span class="math inline">\(V_iV_j\)</span>(两向量的内积)可以理解为第i个元素和第j个元素所共有的相邻结点数量之和，即长度为2的路径条数，得到的<span class="math inline">\(M^2\)</span>也是对称矩阵。</p>
-<p>推广到<span class="math inline">\(M^3\)</span>的情况，<span class="math inline">\(M^3=M^2M\)</span>由上面的推导易得，<span class="math inline">\(M^2_{(i,j)}\)</span>是元素<span class="math inline">\(i\)</span>到元素<span class="math inline">\(j\)</span>长度为2的路径条数，<span class="math inline">\(M_{(k,j)}\)</span>是元素<span class="math inline">\(k\)</span>到元素<span class="math inline">\(j\)</span>的长度为1的路径条数，两者相乘可以得到经过<span class="math inline">\(j\)</span>从<span class="math inline">\(i\)</span>到<span class="math inline">\(k\)</span>的所有路径数，将经过所有点的路径数相加就能得到长度为3的从<span class="math inline">\(i\)</span>到<span class="math inline">\(k\)</span>的所有路径数。</p>
-<p>所以<span class="math inline">\(M^n_{(i,j)}\)</span>表示从<span class="math inline">\(i\)</span>到<span class="math inline">\(j\)</span>长度为<span class="math inline">\(n\)</span>的路径数。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/03/邻接矩阵的乘法/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -467,7 +697,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -476,13 +706,19 @@
       
       <div class="site-state-item site-state-categories">
         
+          
+            <a href="/categories/">
+          
+        
         
         
           
         
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">categories</span>
+          
         
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
       </div>
     
       
@@ -495,7 +731,13 @@
         
           
         
-        <span class="site-state-item-count">2</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span>
         
       </div>

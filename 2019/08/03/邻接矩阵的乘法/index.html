@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Pipixiax0r&#39;s Blog">
 <meta property="og:description" content="邻接矩阵乘法 设有一个矩阵\(M\)，其矩阵表示如下： \[ \begin{bmatrix}  0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\   1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\\   1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\\   0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\ \end{bmatrix} \] \(M^2\)为 \[ \begi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-03T08:52:57.759Z">
+<meta property="og:updated_time" content="2019-08-03T15:05:24.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="邻接矩阵的乘法">
 <meta name="twitter:description" content="邻接矩阵乘法 设有一个矩阵\(M\)，其矩阵表示如下： \[ \begin{bmatrix}  0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\   1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\\   1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\\   0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\ \end{bmatrix} \] \(M^2\)为 \[ \begi">
@@ -249,12 +249,27 @@
                 
               
 
-              <time title="Created: 2019-08-03 01:36:30 / Modified: 01:52:57" itemprop="dateCreated datePublished" datetime="2019-08-03T01:36:30-07:00">2019-08-03</time>
+              <time title="Created: 2019-08-03 01:36:30 / Modified: 08:05:24" itemprop="dateCreated datePublished" datetime="2019-08-03T01:36:30-07:00">2019-08-03</time>
             </span>
           
             
 
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法-数据结构/" itemprop="url" rel="index"><span itemprop="name">算法/数据结构</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           <br>
@@ -286,6 +301,7 @@
 \end{bmatrix}
 \]</span> <span class="math inline">\(M^2_{(i,j)}\)</span> 为<span class="math inline">\(M^2\)</span>的第<span class="math inline">\(i\)</span>行<span class="math inline">\(j\)</span>列所在的元素，<span class="math inline">\(M^2_{(i,j)}\)</span>可以理解为第<span class="math inline">\(i\)</span>个元素到第<span class="math inline">\(j\)</span>个元素长度为2路径条数。</p>
 <p>推广到<span class="math inline">\(M^n\)</span>的情况即，第<span class="math inline">\(i\)</span>个元素到第<span class="math inline">\(j\)</span>个元素长度为<span class="math inline">\(n\)</span>路径条数。</p>
+<a id="more"></a>
 <h2 id="本质">本质</h2>
 <p>将矩阵表示为列向量形式，<span class="math inline">\(M=(V_1, V_2, ..., V_n)\)</span>，由于邻接矩阵是对称矩阵，所以有<span class="math inline">\(M^T=M\)</span>，即：<span class="math inline">\(M^2=M^TM=M \otimes M\)</span>，所以<span class="math inline">\(M^2\)</span>可表示为 <span class="math display">\[
 \begin{bmatrix}
@@ -324,6 +340,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+              <a href="/2019/08/03/出栈顺序与卡特兰数/" rel="prev" title="出栈顺序与卡特兰数">
+                出栈顺序与卡特兰数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
     </footer>
@@ -375,7 +395,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -384,13 +404,19 @@
       
       <div class="site-state-item site-state-categories">
         
+          
+            <a href="/categories/">
+          
+        
         
         
           
         
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">categories</span>
+          
         
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
       </div>
     
       
@@ -403,7 +429,13 @@
         
           
         
-        <span class="site-state-item-count">2</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span>
         
       </div>

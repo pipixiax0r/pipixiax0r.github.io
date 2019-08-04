@@ -66,7 +66,7 @@
 <meta property="og:description" content="不同出栈顺序的个数  N个不同元素依次进栈，能够得到多少种不同的出栈序列？  首先，不同元素依次进栈，也就说明入栈顺序是固定的，我们知道栈的主要操作有3种：入栈、出栈、取栈顶，这里用不到取栈顶这种操作，也就只有入栈和出栈这两种 我们可以用1表示入栈，用0表示出栈，那么这个问题就变成求1、0两个数字的组合问题，共有\(n \choose 2n\) 种 (总共有2n个空位选择其中n个填入1，其余填入0">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://assets.processon.com/chart_image/5cf8825be4b08ceab311aaa9.png">
-<meta property="og:updated_time" content="2019-08-03T15:05:47.954Z">
+<meta property="og:updated_time" content="2019-08-04T07:40:34.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="出栈顺序与卡特兰数">
 <meta name="twitter:description" content="不同出栈顺序的个数  N个不同元素依次进栈，能够得到多少种不同的出栈序列？  首先，不同元素依次进栈，也就说明入栈顺序是固定的，我们知道栈的主要操作有3种：入栈、出栈、取栈顶，这里用不到取栈顶这种操作，也就只有入栈和出栈这两种 我们可以用1表示入栈，用0表示出栈，那么这个问题就变成求1、0两个数字的组合问题，共有\(n \choose 2n\) 种 (总共有2n个空位选择其中n个填入1，其余填入0">
@@ -251,11 +251,21 @@
                 
               
 
-              <time title="Created: 2019-08-03 07:50:38 / Modified: 08:05:47" itemprop="dateCreated datePublished" datetime="2019-08-03T07:50:38-07:00">2019-08-03</time>
+              <time title="Created: 2019-08-03 07:50:38" itemprop="dateCreated datePublished" datetime="2019-08-03T07:50:38-07:00">2019-08-03</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-04 00:40:34" itemprop="dateModified" datetime="2019-08-04T00:40:34-07:00">2019-08-04</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -295,7 +305,7 @@
 <p>但是还有一个需要注意的问题是：栈为空时不能进行出栈操作，所以<strong>序列0的个数必须时刻小于等于1的个数</strong>。</p>
 <p>现在我们需要求出，无效的的出栈序列的数量， <img src="http://assets.processon.com/chart_image/5cf8825be4b08ceab311aaa9.png" alt="image"></p>
 <p>如上图所示：</p>
-<p>前2m个元素1和0的数量相等，到2m+1的位置时，0的个数增加一个，变为m+1个，此时的序列无效。我们把之后的长度为2m-2m-1的序列取反，可以得到n+1个0和n-1个1组成的序列，我们可以认为<strong>每个不合法的序列对应一个n+1个0和n-1个1组成的序列</strong>。</p>
+<p>前2m个元素1和0的数量相等，到2m+1的位置时，0的个数增加一个，变为m+1个，此时的序列无效。我们把之后的长度为2n-2m-1的序列取反，可以得到n+1个0和n-1个1组成的序列，我们可以认为<strong>每个不合法的序列对应一个n+1个0和n-1个1组成的序列</strong>。</p>
 <p>反过来看，每个由n+1个0和n-1个1组成的序列，由于0的个数比1多出2个，必定在某个奇数位上0的个数大于1，将之后的序列取反，此时0和1的数量一致，且对应一个无效序列，即<strong>每个由n+1个0和n-1个1组成的序列对应一个无效序列</strong>。</p>
 <p>所以，无效序列的数量和由n+1个0和n-1个1组成的序列数量相等，我们可以求出由n+1个0和n-1个1组成的序列数量为<span class="math inline">\(n-1 \choose 2n\)</span>。</p>
 <p>最后求出出栈顺序的个数： <span class="math display">\[

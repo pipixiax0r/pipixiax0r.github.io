@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>取整</title>
+      <link href="/2019/08/03/%E5%8F%96%E6%95%B4/"/>
+      <url>/2019/08/03/%E5%8F%96%E6%95%B4/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>在数据结构的二分查找中常常会遇到的问题，到底是向上取整还是向下取整，向上和向下之间如何进行转化？</p></blockquote><h2 id="除法中的向上取整和向下取整的转化">除法中的向上取整和向下取整的转化</h2><h3 id="公式及证明">公式及证明</h3><p>公式如下：</p><p><span class="math display">\[\left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil\]</span> <a id="more"></a> 证明过程如下：</p><p><span class="math inline">\(\left \lceil x \right \rceil\)</span>记为<span class="math inline">\(x\)</span>向上取整，<span class="math inline">\(\left \lfloor x \right \rfloor\)</span>记为<span class="math inline">\(x\)</span>向下取整，<span class="math inline">\(M\)</span>为被除数，<span class="math inline">\(N\)</span>为除数， <span class="math inline">\(M,N,k,r\in Z\)</span>, <span class="math inline">\(M\)</span>和<span class="math inline">\(N\)</span>满足以下关系：</p><p><span class="math display">\[M = kN + r(0&lt;=r&lt;N)\]</span> 若<span class="math inline">\(r=0\)</span>, <span class="math inline">\(\left \lceil M/N \right \rceil = \left \lceil k \right \rceil = k\)</span>, <span class="math inline">\((M-1)/N=k-1\)</span>$</p><p><span class="math inline">\(\therefore \left \lfloor (M-1)/N+1 \right \rfloor = k = \left \lceil M/N \right \rceil\)</span>$</p><p>若<span class="math inline">\(r&gt;0\)</span>, <span class="math inline">\(\left \lceil M/N \right \rceil = \left \lceil k+\frac{r}{N} \right \rceil = k+1\)</span>,</p><p><span class="math inline">\(\left \lfloor (M-1)/N+1 \right \rfloor = \left \lfloor (kN+r-1)/N+1 \right \rfloor = \left \lfloor (N+1)+ \frac{r-1}{N} \right \rfloor = N+1\)</span>$</p><p>$ (M-1)/N+1 = k+1 = M/N $$</p><h3 id="特殊情况">特殊情况</h3><p>当N为2时，有： <span class="math display">\[\left \lfloor \frac{M+1}{2} \right \rfloor = \left \lceil \frac{M}{2} \right \rceil\]</span></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法/数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 取整 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>出栈顺序与卡特兰数</title>
+      <link href="/2019/08/03/%E5%87%BA%E6%A0%88%E9%A1%BA%E5%BA%8F%E4%B8%8E%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/"/>
+      <url>/2019/08/03/%E5%87%BA%E6%A0%88%E9%A1%BA%E5%BA%8F%E4%B8%8E%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="不同出栈顺序的个数">不同出栈顺序的个数</h1><blockquote><p>N个不同元素依次进栈，能够得到多少种不同的出栈序列？</p></blockquote><p>首先，不同元素<strong>依次进栈</strong>，也就说明入栈<strong>顺序是固定的</strong>，我们知道栈的主要操作有3种：入栈、出栈、取栈顶，这里用不到取栈顶这种操作，也就只有入栈和出栈这两种</p><p>我们可以用1表示入栈，用0表示出栈，那么这个问题就变成求1、0两个数字的组合问题，共有<span class="math inline">\(n \choose 2n\)</span> 种 (总共有2n个空位选择其中n个填入1，其余填入0)</p><a id="more"></a><p>但是还有一个需要注意的问题是：栈为空时不能进行出栈操作，所以<strong>序列0的个数必须时刻小于等于1的个数</strong>。</p><p>现在我们需要求出，无效的的出栈序列的数量， <img src="http://assets.processon.com/chart_image/5cf8825be4b08ceab311aaa9.png" alt="image"></p><p>如上图所示：</p><p>前2m个元素1和0的数量相等，到2m+1的位置时，0的个数增加一个，变为m+1个，此时的序列无效。我们把之后的长度为2n-2m-1的序列取反，可以得到n+1个0和n-1个1组成的序列，我们可以认为<strong>每个不合法的序列对应一个n+1个0和n-1个1组成的序列</strong>。</p><p>反过来看，每个由n+1个0和n-1个1组成的序列，由于0的个数比1多出2个，必定在某个奇数位上0的个数大于1，将之后的序列取反，此时0和1的数量一致，且对应一个无效序列，即<strong>每个由n+1个0和n-1个1组成的序列对应一个无效序列</strong>。</p><p>所以，无效序列的数量和由n+1个0和n-1个1组成的序列数量相等，我们可以求出由n+1个0和n-1个1组成的序列数量为<span class="math inline">\(n-1 \choose 2n\)</span>。</p><p>最后求出出栈顺序的个数： <span class="math display">\[{n \choose 2n} - {n-1 \choose 2n} = \frac {1} {n+1} {n \choose 2n}\]</span> 这个数也被称作<strong>卡特兰数</strong>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法/数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 卡特兰数 </tag>
+            
+            <tag> 出栈顺序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>邻接矩阵的乘法</title>
+      <link href="/2019/08/03/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E7%9A%84%E4%B9%98%E6%B3%95/"/>
+      <url>/2019/08/03/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E7%9A%84%E4%B9%98%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="邻接矩阵乘法">邻接矩阵乘法</h1><p>设有一个矩阵<span class="math inline">\(M\)</span>，其矩阵表示如下： <span class="math display">\[\begin{bmatrix} 0 &amp; 1 &amp; 1 &amp; 0\\  1 &amp; 0 &amp; 0 &amp; 1\\  1 &amp; 0 &amp; 0 &amp; 1\\  0 &amp; 1 &amp; 1 &amp; 0\\\end{bmatrix}\]</span></p><p><span class="math inline">\(M^2\)</span>为 <span class="math display">\[\begin{bmatrix} 2 &amp; 0 &amp; 0 &amp; 2\\  0 &amp; 2 &amp; 2 &amp; 0\\  0 &amp; 2 &amp; 2 &amp; 0\\  2 &amp; 0 &amp; 0 &amp; 2\\\end{bmatrix}\]</span> <span class="math inline">\(M^2_{(i,j)}\)</span> 为<span class="math inline">\(M^2\)</span>的第<span class="math inline">\(i\)</span>行<span class="math inline">\(j\)</span>列所在的元素，<span class="math inline">\(M^2_{(i,j)}\)</span>可以理解为第<span class="math inline">\(i\)</span>个元素到第<span class="math inline">\(j\)</span>个元素长度为2路径条数。</p><p>推广到<span class="math inline">\(M^n\)</span>的情况即，第<span class="math inline">\(i\)</span>个元素到第<span class="math inline">\(j\)</span>个元素长度为<span class="math inline">\(n\)</span>路径条数。</p><a id="more"></a><h2 id="本质">本质</h2><p>将矩阵表示为列向量形式，<span class="math inline">\(M=(V_1, V_2, ..., V_n)\)</span>，由于邻接矩阵是对称矩阵，所以有<span class="math inline">\(M^T=M\)</span>，即：<span class="math inline">\(M^2=M^TM=M \otimes M\)</span>，所以<span class="math inline">\(M^2\)</span>可表示为 <span class="math display">\[\begin{bmatrix} V_1V_1 &amp; V_1V_2 &amp; V_1V_3 &amp; V_1V_4\\  V_2V_1 &amp; V_2V_2 &amp; V_2V_3 &amp; V_2V_4\\  V_3V_1 &amp; V_3V_2 &amp; V_3V_3 &amp; V_3V_4\\  V_4V_1 &amp; V_4V_2 &amp; V_4V_3 &amp; V_4V_4\\\end{bmatrix}\]</span> <span class="math inline">\(V_iV_j\)</span>(两向量的内积)可以理解为第i个元素和第j个元素所共有的相邻结点数量之和，即长度为2的路径条数，得到的<span class="math inline">\(M^2\)</span>也是对称矩阵。</p><p>推广到<span class="math inline">\(M^3\)</span>的情况，<span class="math inline">\(M^3=M^2M\)</span>由上面的推导易得，<span class="math inline">\(M^2_{(i,j)}\)</span>是元素<span class="math inline">\(i\)</span>到元素<span class="math inline">\(j\)</span>长度为2的路径条数，<span class="math inline">\(M_{(k,j)}\)</span>是元素<span class="math inline">\(k\)</span>到元素<span class="math inline">\(j\)</span>的长度为1的路径条数，两者相乘可以得到经过<span class="math inline">\(j\)</span>从<span class="math inline">\(i\)</span>到<span class="math inline">\(k\)</span>的所有路径数，将经过所有点的路径数相加就能得到长度为3的从<span class="math inline">\(i\)</span>到<span class="math inline">\(k\)</span>的所有路径数。</p><p>所以<span class="math inline">\(M^n_{(i,j)}\)</span>表示从<span class="math inline">\(i\)</span>到<span class="math inline">\(j\)</span>长度为<span class="math inline">\(n\)</span>的路径数。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法/数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 邻接矩阵 </tag>
+            
+            <tag> 图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>写在前面</title>
+      <link href="/2019/08/02/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/"/>
+      <url>/2019/08/02/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一些废话">一些废话</h2><p>之前阿里云的服务器到期之后就没续了, 之前写了好久的文章也没了还挺可惜的(虽然没啥人看233), 本着能白嫖为啥要花钱的精神, 花了点时间搞了这个东西出来.</p><p>hexo虽然是静态的, 但是感觉功能还蛮强大, 应该完全够用了, 也不用担心安全问题.</p><h2 id="为什么重新开始写博客">为什么重新开始写博客</h2><p>之前阿里云的博客, 写了一堆类似教程之类的东西, 基本没人看, 全是爬虫在访问,感觉没啥意义. 最近看了垠神的博客, 受到了点启发, blog这种东西本来就是写给自己看的, 自己开心就好, 没必要像各种教程一样写的一板一眼.</p><p>所以这个blog主要用来:</p><ol type="1"><li><p>记录一下最近学了些啥</p></li><li><p>发表一点个人想法</p></li><li><p>吐槽</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> others </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>

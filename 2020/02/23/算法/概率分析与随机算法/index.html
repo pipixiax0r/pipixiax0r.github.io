@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Pipixiax0r&#39;s Blog">
 <meta property="og:description" content="雇佣问题 假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？ 该策略伪代码如下： 1234567HIRE-ASSISTANT(n)    best = 0    // candidate 0 is a least-qualified dummy candidate    for">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-24T07:02:03.395Z">
+<meta property="og:updated_time" content="2020-03-13T15:18:57.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率分析与随机算法">
 <meta name="twitter:description" content="雇佣问题 假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？ 该策略伪代码如下： 1234567HIRE-ASSISTANT(n)    best = 0    // candidate 0 is a least-qualified dummy candidate    for">
@@ -302,7 +302,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-02-24 15:02:03" itemprop="dateModified" datetime="2020-02-24T15:02:03+08:00">2020-02-24</time>
+                <time title="Modified: 2020-03-13 23:18:57" itemprop="dateModified" datetime="2020-03-13T23:18:57+08:00">2020-03-13</time>
               </span>
             
           
@@ -404,7 +404,12 @@ E[X] = \ln n + O(1) \tag{3}
 <p>证明这个算法能产生一个均匀随机序列之前，我们先证明下面的循环不变式：</p>
 <p><strong>在第2-3行for循环的第i次迭代之前，对每个可能的(i-1)排列，子数组A[1..i-1]包含这个(i-1)排列的概率是<span class="math inline">\((n-i+1)!/n!\)</span></strong></p>
 <p><strong>初始化</strong>：考虑在第一次循环迭代以前的情况，此时i=1。由循环不变式可知子数组A[1..0]包含这个0序列的概率为1，循环不变式成立。</p>
-<p><strong>保持</strong>：子数组A[1..i-1]包含(i-1)的排列，即前i-1个数是一样的，后面(n-i-1)个数随机排列，排列共有<span class="math inline">\((n-i+1)!\)</span>种，而整个数组共能产生的排列共n!种，所以概率为<span class="math inline">\((n-i+1)!/n!\)</span>，成立。</p>
+<p><strong>保持</strong>：我们假设在第i次迭代之前，每种可能的(i-1)排列出现在子数组A[1..i-1]中的概率是<span class="math inline">\((n-i+1)!/n!\)</span>，我们要说明的是在第i次迭代以后，每种可能的<span class="math inline">\(i\)</span>排列出现在子数组A中的概率是<span class="math inline">\((n-i)!/n!\)</span>。</p>
+<p>我们来检查第i次迭代，考虑一个特殊的i排列，以<span class="math inline">\(&lt;x_1,x_2,\dots,x_i&gt;\)</span>表示其中的元素，这个排列包含一个(i-1)排列<span class="math inline">\(&lt;x_1,x_2,\dots,x_{i-1}&gt;\)</span>，如果在第i次迭代之后，<span class="math inline">\(x_i\)</span>被放置到位置i，即被包含的(i-1)排列变成了i排列。</p>
+<p>记<span class="math inline">\(E_1\)</span>为前(n-1)次迭代构造了(n-1)排列，记<span class="math inline">\(E_2\)</span>为第i次迭代将<span class="math inline">\(x_i\)</span>放置到位置i，可得：</p>
+<p><span class="math display">\[
+Pr\{E_{2} \cap E_{1}\} = Pr\{E_2 | E_1\}Pr\{E_1\} = \frac{1}{n-i+1} \cdot \frac{(n-i+1)!}{n!} = \frac{(n-i)!}{n!}
+\]</span></p>
 <p><strong>终止</strong>：当终止时，i=n+1，子数组A[1..n]给定一个n排列的概率为<span class="math inline">\((n-(n+1)+1)!/n!=1/n!\)</span></p>
 <p>由此我们就能证明对于每种n排列，该算法给出的概率都是<span class="math inline">\(1/n!\)</span>，所以该算法能产生一个均匀随机序列。</p>
 
@@ -492,7 +497,7 @@ E[X] = \ln n + O(1) \tag{3}
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

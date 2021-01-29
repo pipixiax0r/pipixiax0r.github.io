@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="\(O\)这是用于描述算法复杂度最常用的符号，也是被误用最多的符号，许多人将其与\(\Theta\)符号所混淆，或者说并不完全理解其含义。所以我将从其数学表示来简单解释一下我们会遇到的常见的渐进符号。">
+  <meta name="description" content="$O$这是用于描述算法复杂度最常用的符号，也是被误用最多的符号，许多人将其与$\Theta$符号所混淆，或者说并不完全理解其含义。所以我将从其数学表示来简单解释一下我们会遇到的常见的渐进符号。">
 <meta name="keywords" content="算法导论,渐进记号">
 <meta property="og:type" content="article">
 <meta property="og:title" content="渐进记号">
 <meta property="og:url" content="http://yoursite.com/2020/02/10/算法/渐进记号/index.html">
 <meta property="og:site_name" content="Pipixiax0r&#39;s Blog">
-<meta property="og:description" content="\(O\)这是用于描述算法复杂度最常用的符号，也是被误用最多的符号，许多人将其与\(\Theta\)符号所混淆，或者说并不完全理解其含义。所以我将从其数学表示来简单解释一下我们会遇到的常见的渐进符号。">
+<meta property="og:description" content="$O$这是用于描述算法复杂度最常用的符号，也是被误用最多的符号，许多人将其与$\Theta$符号所混淆，或者说并不完全理解其含义。所以我将从其数学表示来简单解释一下我们会遇到的常见的渐进符号。">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-02-10T12:59:27.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="渐进记号">
-<meta name="twitter:description" content="\(O\)这是用于描述算法复杂度最常用的符号，也是被误用最多的符号，许多人将其与\(\Theta\)符号所混淆，或者说并不完全理解其含义。所以我将从其数学表示来简单解释一下我们会遇到的常见的渐进符号。">
+<meta name="twitter:description" content="$O$这是用于描述算法复杂度最常用的符号，也是被误用最多的符号，许多人将其与$\Theta$符号所混淆，或者说并不完全理解其含义。所以我将从其数学表示来简单解释一下我们会遇到的常见的渐进符号。">
   <link rel="canonical" href="http://yoursite.com/2020/02/10/算法/渐进记号/">
 
 
@@ -341,25 +341,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><span class="math inline">\(O\)</span>这是用于描述算法复杂度最常用的符号，也是被误用最多的符号，许多人将其与<span class="math inline">\(\Theta\)</span>符号所混淆，或者说并不完全理解其含义。所以我将从其数学表示来简单解释一下我们会遇到的常见的渐进符号。 <a id="more"></a></p>
-<h1 id="渐进记号">渐进记号</h1>
-<h3 id="theta记号"><span class="math inline">\(\Theta\)</span>记号</h3>
-<p>从<span class="math inline">\(\Theta\)</span>记号开始，其定义是:对于一个给定的函数用<span class="math inline">\(\Theta(g(n))=\)</span>{<span class="math inline">\(f(n):\)</span>存在正常量<span class="math inline">\(c_{1},c_{2},n_{0}\)</span>使得对于所有的<span class="math inline">\(n \geq n_{0}\)</span>，有<span class="math inline">\(0 \leq c_{1}g(n) \leq f(n) \leq c_{2}g(n)\)</span>}</p>
+        <p>$O$这是用于描述算法复杂度最常用的符号，也是被误用最多的符号，许多人将其与$\Theta$符号所混淆，或者说并不完全理解其含义。所以我将从其数学表示来简单解释一下我们会遇到的常见的渐进符号。</p>
+<a id="more"></a>
+
+<h1 id="渐进记号"><a href="#渐进记号" class="headerlink" title="渐进记号"></a>渐进记号</h1><h3 id="Theta-记号"><a href="#Theta-记号" class="headerlink" title="$\Theta$记号"></a>$\Theta$记号</h3><p>从$\Theta$记号开始，其定义是:对于一个给定的函数用$\Theta(g(n))=${$f(n):$存在正常量$c_{1},c_{2},n_{0}$使得对于所有的$n \geq n_{0}$，有$0 \leq c_{1}g(n) \leq f(n) \leq c_{2}g(n)$}</p>
 <p><em>(此处的冒号意为“使得”)</em></p>
-<p>需要注意的是，首先<span class="math inline">\(\Theta(g(n))\)</span>是一个集合，并且是一个函数的集合，因此不要把<span class="math inline">\(\Theta(g(n))\)</span>当做一个数。</p>
-<p>其次，<span class="math inline">\(f(n)\)</span>是被夹在<span class="math inline">\(c_{1}g(n)\)</span>和<span class="math inline">\(c_{2}g(n)\)</span>之间的，可以理解为这分别是函数的下界和上界<em>(准确来说应该叫做渐进上界和渐进下界)</em>。同时，我们把<span class="math inline">\(g(n)\)</span>称为<span class="math inline">\(f(n)\)</span>的一个渐进紧确界。</p>
-<p>如果你学习过数学的分析学知识，不难发现，这个定义与极限很相似。我们可以用极限来表示<span class="math inline">\(f(n)\)</span>和<span class="math inline">\(g(n)\)</span>之间的关系： <span class="math display">\[
-\lim_{x \to \infty} \frac{f(n)}{g(n)}=k
-\]</span> 此处的<span class="math inline">\(k\)</span>存在且不等于0。</p>
-<h3 id="o记号"><span class="math inline">\(O\)</span>记号</h3>
-<p>我们很多时候是把<span class="math inline">\(O\)</span>记号当做<span class="math inline">\(\Theta\)</span>记号在使用，而<span class="math inline">\(O\)</span>记号事实上只表示了函数的上界，其数学定义为<span class="math inline">\(O(g(n))=\)</span>{<span class="math inline">\(f(n):\)</span>存在正常量<span class="math inline">\(c\)</span>和<span class="math inline">\(n_{0}\)</span>，使对所有<span class="math inline">\(n \geq n_{0}\)</span>有<span class="math inline">\(0 \leq f(n) \leq cg(n)\)</span>}</p>
-<p>将插入排序的算法复杂度记为<span class="math inline">\(T(n)\)</span>，那么<span class="math inline">\(T(n)=\Theta(n^{2})\)</span>和<span class="math inline">\(T(n)=\Theta(n^{3})\)</span>都是成立的，到这里就可以发现，<span class="math inline">\(O\)</span>记号不如<span class="math inline">\(\Theta\)</span>记号准确，它所包含的范围要更广一些，只要<span class="math inline">\(f(n)\)</span>没有超出上界都是正确的。</p>
-<h3 id="omega记号"><span class="math inline">\(\Omega\)</span>记号</h3>
-<p>理解了<span class="math inline">\(O\)</span>记号之后，<span class="math inline">\(\Omega\)</span>记号是很好理解的，<span class="math inline">\(\Omega\)</span>记号与<span class="math inline">\(O\)</span>记号的不同之处就仅仅在于一个是刻画上界，另一个刻画下界。</p>
+<p>需要注意的是，首先$\Theta(g(n))$是一个集合，并且是一个函数的集合，因此不要把$\Theta(g(n))$当做一个数。</p>
+<p>其次，$f(n)$是被夹在$c_{1}g(n)$和$c_{2}g(n)$之间的，可以理解为这分别是函数的下界和上界<em>(准确来说应该叫做渐进上界和渐进下界)</em>。同时，我们把$g(n)$称为$f(n)$的一个渐进紧确界。</p>
+<p>如果你学习过数学的分析学知识，不难发现，这个定义与极限很相似。我们可以用极限来表示$f(n)$和$g(n)$之间的关系：<br>$$<br>\lim_{x \to \infty} \frac{f(n)}{g(n)}=k<br>$$<br>此处的$k$存在且不等于0。</p>
+<h3 id="O-记号"><a href="#O-记号" class="headerlink" title="$O$记号"></a>$O$记号</h3><p>我们很多时候是把$O$记号当做$\Theta$记号在使用，而$O$记号事实上只表示了函数的上界，其数学定义为$O(g(n))=${$f(n):$存在正常量$c$和$n_{0}$，使对所有$n \geq n_{0}$有$0 \leq f(n) \leq cg(n)$}</p>
+<p>将插入排序的算法复杂度记为$T(n)$，那么$T(n)=\Theta(n^{2})$和$T(n)=\Theta(n^{3})$都是成立的，到这里就可以发现，$O$记号不如$\Theta$记号准确，它所包含的范围要更广一些，只要$f(n)$没有超出上界都是正确的。</p>
+<h3 id="Omega-记号"><a href="#Omega-记号" class="headerlink" title="$\Omega$记号"></a>$\Omega$记号</h3><p>理解了$O$记号之后，$\Omega$记号是很好理解的，$\Omega$记号与$O$记号的不同之处就仅仅在于一个是刻画上界，另一个刻画下界。</p>
 <p>需要注意的是，有一个重要的定理可以将三个符号联系在一起:</p>
-<p>对于任意的<span class="math inline">\(f(n)\)</span>和<span class="math inline">\(g(n)\)</span>，我们有<span class="math inline">\(f(n)=\Theta(g(n))\)</span>，当且仅当<span class="math inline">\(f(n)=O(g(n))\)</span>，<span class="math inline">\(f(n)=\Omega(g(n))\)</span></p>
-<h3 id="总结">总结</h3>
-<p>渐进记号看起来是很基础的东西，但是它的定义是很巧妙的，它完美的避开了数据规模和机器的运算速度来对算法的复杂度进行精准的刻画，正确理解这些记号有利于之后对递归式的求解。</p>
+<p>对于任意的$f(n)$和$g(n)$，我们有$f(n)=\Theta(g(n))$，当且仅当$f(n)=O(g(n))$，$f(n)=\Omega(g(n))$</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>渐进记号看起来是很基础的东西，但是它的定义是很巧妙的，它完美的避开了数据规模和机器的运算速度来对算法的复杂度进行精准的刻画，正确理解这些记号有利于之后对递归式的求解。 </p>
 
     </div>
 
@@ -594,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#渐进记号"><span class="nav-number">1.</span> <span class="nav-text">渐进记号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#theta记号"><span class="nav-number">1.0.1.</span> <span class="nav-text">\(\Theta\)记号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#o记号"><span class="nav-number">1.0.2.</span> <span class="nav-text">\(O\)记号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#omega记号"><span class="nav-number">1.0.3.</span> <span class="nav-text">\(\Omega\)记号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.0.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#渐进记号"><span class="nav-number">1.</span> <span class="nav-text">渐进记号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Theta-记号"><span class="nav-number">1.0.1.</span> <span class="nav-text">$\Theta$记号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#O-记号"><span class="nav-number">1.0.2.</span> <span class="nav-text">$O$记号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Omega-记号"><span class="nav-number">1.0.3.</span> <span class="nav-text">$\Omega$记号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.0.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

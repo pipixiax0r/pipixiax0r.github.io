@@ -337,8 +337,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="堆">堆</h1>
-<p><strong>(二叉)堆</strong>是一个数组，可以被看作一棵近似的完全二叉树，C语言中，堆的数据结构定义如下： <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> heap_size;		<span class="comment">// 堆的大小</span></span><br><span class="line">	<span class="keyword">int</span> length;		<span class="comment">// 数组长度</span></span><br><span class="line">	<span class="keyword">int</span>* data;		<span class="comment">// 堆中所存放的数据</span></span><br><span class="line">&#125;heap;</span><br></pre></td></tr></table></figure></p>
+          <h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><p><strong>(二叉)堆</strong>是一个数组，可以被看作一棵近似的完全二叉树，C语言中，堆的数据结构定义如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> heap_size;		<span class="comment">// 堆的大小</span></span><br><span class="line">	<span class="keyword">int</span> length;		<span class="comment">// 数组长度</span></span><br><span class="line">	<span class="keyword">int</span>* data;		<span class="comment">// 堆中所存放的数据</span></span><br><span class="line">&#125;heap;</span><br></pre></td></tr></table></figure>
+
 <p>需要注意这里有两个长度：堆的大小和数组的长度，整个数组中只有一部分数据是堆的数据，因此堆的大小要小于数组的长度。这样的实现方式有利于堆排序代码的编写。</p>
 <p>堆可以分为两种形式：<strong>最大堆</strong>和<strong>最小堆</strong>。</p>
 <p>在这两种堆中，结点的值都要满足，堆的性质。在最大堆中，最大堆性质是指除了在最大堆中除根以外的所有结点的值都要<strong>大于等于</strong>其父节点的值，最小堆则相反，要<strong>小于等于</strong>其父节点的值。</p>
@@ -465,8 +466,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="快速排序">快速排序</h1>
-<p>这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于<strong>分治法</strong>的排序算法，但是它是<strong>原址</strong>排序，从使用来看平均性能是归并排序的4倍左右。</p>
+          <h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于<strong>分治法</strong>的排序算法，但是它是<strong>原址</strong>排序，从使用来看平均性能是归并排序的4倍左右。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -599,9 +599,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="雇佣问题">雇佣问题</h1>
-<p>假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？</p>
-<p>该策略伪代码如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HIRE-ASSISTANT(n)</span><br><span class="line">    best = 0    // candidate 0 is a least-qualified dummy candidate</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        interview candidate i</span><br><span class="line">        if candidate i is better than candidate best</span><br><span class="line">            best = i</span><br><span class="line">            hire candidate i</span><br></pre></td></tr></table></figure></p>
+          <h1 id="雇佣问题"><a href="#雇佣问题" class="headerlink" title="雇佣问题"></a>雇佣问题</h1><p>假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？</p>
+<p>该策略伪代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HIRE-ASSISTANT(n)</span><br><span class="line">    best = 0    // candidate 0 is a least-qualified dummy candidate</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        interview candidate i</span><br><span class="line">        if candidate i is better than candidate best</span><br><span class="line">            best = i</span><br><span class="line">            hire candidate i</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -724,9 +724,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="分治法">分治法</h1>
-<h2 id="基本思想">基本思想</h2>
-<p>分治法，递归的划分问题然后解决，在每层递归中应用以下三个步骤：</p>
+          <h1 id="分治法"><a href="#分治法" class="headerlink" title="分治法"></a>分治法</h1><h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>分治法，递归的划分问题然后解决，在每层递归中应用以下三个步骤：</p>
 <ul>
 <li><strong>分解</strong>，把问题划分为子问题，子问题的形式与原问题一样，只是规模更小</li>
 <li><strong>解决</strong>，递归的求解出子问题，如果子问题的规模足够小(即基础情况)，则停止递归直接求解。</li>
@@ -863,8 +861,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="递归表达式">递归表达式</h2>
-<p>递归表达式是非常强大的工具，它能用最简单的式子表达出复杂的问题。但是很多时候要求算法的复杂度时，递归就成了我们的障碍，因此，了解递归式的解法是有很必要的。
+          <h2 id="递归表达式"><a href="#递归表达式" class="headerlink" title="递归表达式"></a>递归表达式</h2><p>递归表达式是非常强大的工具，它能用最简单的式子表达出复杂的问题。但是很多时候要求算法的复杂度时，递归就成了我们的障碍，因此，了解递归式的解法是有很必要的。</p>
           <!--noindex-->
           
             <div class="post-button text-center">

@@ -4,7 +4,7 @@
 
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="">
 <head>
   <meta charset="UTF-8">
 <meta name="generator" content="Hexo 3.9.0">
@@ -26,11 +26,11 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '7.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -57,22 +57,22 @@
   };
 </script>
 
-  <meta name="description" content="快速排序 这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于分治法的排序算法，但是它是原址排序，从使用来看平均性能是归并排序的4倍左右。">
+  <meta name="description" content="快速排序这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于分治法的排序算法，但是它是原址排序，从使用来看平均性能是归并排序的4倍左右。">
 <meta name="keywords" content="算法导论,排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速排序">
 <meta property="og:url" content="http://yoursite.com/2020/02/27/算法/快速排序/index.html">
 <meta property="og:site_name" content="Pipixiax0r&#39;s Blog">
-<meta property="og:description" content="快速排序 这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于分治法的排序算法，但是它是原址排序，从使用来看平均性能是归并排序的4倍左右。">
+<meta property="og:description" content="快速排序这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于分治法的排序算法，但是它是原址排序，从使用来看平均性能是归并排序的4倍左右。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2020/02/27/算法/快速排序/划分区域.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/02/27/算法/快速排序/交换元素.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/算法/快速排序/%E5%88%92%E5%88%86%E5%8C%BA%E5%9F%9F.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/算法/快速排序/%E4%BA%A4%E6%8D%A2%E5%85%83%E7%B4%A0.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/02/27/算法/快速排序/tree.jpg">
 <meta property="og:updated_time" content="2020-02-27T15:27:50.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速排序">
-<meta name="twitter:description" content="快速排序 这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于分治法的排序算法，但是它是原址排序，从使用来看平均性能是归并排序的4倍左右。">
-<meta name="twitter:image" content="http://yoursite.com/2020/02/27/算法/快速排序/划分区域.jpg">
+<meta name="twitter:description" content="快速排序这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于分治法的排序算法，但是它是原址排序，从使用来看平均性能是归并排序的4倍左右。">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/27/算法/快速排序/%E5%88%92%E5%88%86%E5%8C%BA%E5%9F%9F.jpg">
   <link rel="canonical" href="http://yoursite.com/2020/02/27/算法/快速排序/">
 
 
@@ -345,81 +345,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="快速排序">快速排序</h1>
-<p>这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于<strong>分治法</strong>的排序算法，但是它是<strong>原址</strong>排序，从使用来看平均性能是归并排序的4倍左右。</p>
+        <h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于<strong>分治法</strong>的排序算法，但是它是<strong>原址</strong>排序，从使用来看平均性能是归并排序的4倍左右。</p>
 <a id="more"></a>
-<h2 id="快速排序的描述">快速排序的描述</h2>
-<p>快速排序基于分治法思想，因此步骤也可以划分为基本的3步：</p>
+
+<h2 id="快速排序的描述"><a href="#快速排序的描述" class="headerlink" title="快速排序的描述"></a>快速排序的描述</h2><p>快速排序基于分治法思想，因此步骤也可以划分为基本的3步：</p>
 <p><strong>分解</strong>：数组A[p..r]被划分为两个(可能为空)子数组A[p..q-1]和A[q+1..r]，使得A[p..q-1]中的每个元素都小于等于A[q]，而A[q]也小于等于A[q+1..r]中的每个元素，其中计算下标q也是划分过程的一部分。</p>
 <p><strong>解决</strong>：通过递归调用快速排序，对子数组A[p..q-1]和A[q+1..r]进行排序</p>
 <p><strong>合并</strong>：因为子数组都是原址排序，所以不需要合并操作，数组A[p..r]已经有序。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">qsort</span><span class="params">(<span class="keyword">int</span>* <span class="built_in">array</span>, <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> q;</span><br><span class="line">	<span class="keyword">if</span> (p &lt; r)</span><br><span class="line">	&#123;</span><br><span class="line">		q = partition(<span class="built_in">array</span>, p, r);</span><br><span class="line">		qsort(<span class="built_in">array</span>, p, q - <span class="number">1</span>);</span><br><span class="line">		qsort(<span class="built_in">array</span>, q + <span class="number">1</span>, r);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>快速排序的主体很简单，调用<code>partition()</code>对数组进行划分，然后再递归的对数组进行快排。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>* <span class="built_in">array</span>, <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = p - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="built_in">array</span>[r];				<span class="comment">// 主元</span></span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = p; j &lt; r; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">array</span>[j] &lt;= x) &#123;</span><br><span class="line">			i++;</span><br><span class="line">			temp = <span class="built_in">array</span>[j];</span><br><span class="line">			<span class="built_in">array</span>[j] = <span class="built_in">array</span>[i];</span><br><span class="line">			<span class="built_in">array</span>[i] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">array</span>[r] = <span class="built_in">array</span>[++i];</span><br><span class="line">	<span class="built_in">array</span>[i] = x;					<span class="comment">// 重新插入主元</span></span><br><span class="line">	<span class="keyword">return</span> i;</span><br></pre></td></tr></table></figure>
+
 <p>快速排序的核心在于<code>partition()</code>这个函数，首先函数选取数组的末尾元素作为主元，然后从头到尾依次把元素和主元进行比较讲元素分为大于等于主元的和小于主元，最后将主元插入原数组中，即主元此时处于正确的位置。</p>
-<figure>
-<img src="划分区域.jpg" alt="划分区域"><figcaption>划分区域</figcaption>
-</figure>
-<figure>
-<img src="交换元素.jpg" alt="交换元素"><figcaption>交换元素</figcaption>
-</figure>
-<h2 id="快速排序的性能">快速排序的性能</h2>
-<p>快速排序的运行时间依赖于划分是否平衡，而平衡依赖于用于划分的元素(即主元)。</p>
-<h3 id="最差情况分析">最差情况分析</h3>
-<p>当每次划分产生的子问题规模分别为n-1和0时，此时处于最差的情况，时间复杂度的递归表达式为： <span class="math display">\[
-\begin{aligned}
-T(n) &amp;= T(n-1) + T(0) + \Theta(n) \\
-&amp;= T(n-1) + \Theta(1) + \Theta(n) \\
-&amp;= T(n-1) + \Theta(n) \\
-&amp;= \Theta(n^2)
-\end{aligned}
-\]</span> 如果用递归树来表示，那么会是一颗极度不平衡的二叉树(无左子树或无右子树)。</p>
-<p>最差情况发生在数组是顺序排列或逆序排列时，此时算法复杂度为<span class="math inline">\(O(n^2)\)</span>。</p>
-<h3 id="最好情况分析">最好情况分析</h3>
-<p>最好的情况即两个子树的规模相等，此时递归表达式为: <span class="math display">\[
-\begin{aligned}
-T(n) &amp;= 2T(n/2) + \Theta(n) \\
-&amp;= \Theta(n\log n)
-\end{aligned}
-\]</span> 最好情况下的递归表达式与归并排序是一样的，所以时间复杂度也为<span class="math inline">\(\Theta(n\log n)\)</span></p>
-<h4 id="常数比例系数划分">常数比例系数划分</h4>
-<p>我们以划分后子问题的规模为1:9为例，其递归表达式为： <span class="math display">\[
-T(n) = T(\frac{1}{10}) + T(\frac{9}{10}) + \Theta(n)
-\]</span></p>
-<figure>
-<img src="tree.jpg" alt="递归树"><figcaption>递归树</figcaption>
-</figure>
-<p>从图中可以看出即便是1:9这样不平衡的划分，但是树的高度仍然是<span class="math inline">\(\Theta(\lg n)\)</span>，因此时间复杂度仍为<span class="math inline">\(\Theta(n\lg n)\)</span>。</p>
-<p>事实上，任意一种常数比例的划分，时间复杂度都是<span class="math inline">\(\Theta(n\lg n)\)</span>。</p>
-<h2 id="随机化快速排序">随机化快速排序</h2>
-<p>在讨论快速排序的平均情况时，我们的前提假设是，输入的所有排列都是等可能的。但是在实际的工程中，这个假设不是总成立的，所以我们可以在快速排序中引入随机性，来使得算法在任何输入下都有较好的表现。</p>
+<p><img src="%E5%88%92%E5%88%86%E5%8C%BA%E5%9F%9F.jpg" alt="划分区域"></p>
+<p><img src="%E4%BA%A4%E6%8D%A2%E5%85%83%E7%B4%A0.jpg" alt="交换元素"></p>
+<h2 id="快速排序的性能"><a href="#快速排序的性能" class="headerlink" title="快速排序的性能"></a>快速排序的性能</h2><p>快速排序的运行时间依赖于划分是否平衡，而平衡依赖于用于划分的元素(即主元)。</p>
+<h3 id="最差情况分析"><a href="#最差情况分析" class="headerlink" title="最差情况分析"></a>最差情况分析</h3><p>当每次划分产生的子问题规模分别为n-1和0时，此时处于最差的情况，时间复杂度的递归表达式为：<br>$$<br>\begin{aligned}<br>T(n) &amp;= T(n-1) + T(0) + \Theta(n) \<br>&amp;= T(n-1) + \Theta(1) + \Theta(n) \<br>&amp;= T(n-1) + \Theta(n) \<br>&amp;= \Theta(n^2)<br>\end{aligned}<br>$$<br>如果用递归树来表示，那么会是一颗极度不平衡的二叉树(无左子树或无右子树)。</p>
+<p>最差情况发生在数组是顺序排列或逆序排列时，此时算法复杂度为$O(n^2)$。</p>
+<h3 id="最好情况分析"><a href="#最好情况分析" class="headerlink" title="最好情况分析"></a>最好情况分析</h3><p>最好的情况即两个子树的规模相等，此时递归表达式为:<br>$$<br>\begin{aligned}<br>T(n) &amp;= 2T(n/2) + \Theta(n) \<br>&amp;= \Theta(n\log n)<br>\end{aligned}<br>$$<br>最好情况下的递归表达式与归并排序是一样的，所以时间复杂度也为$\Theta(n\log n)$</p>
+<h4 id="常数比例系数划分"><a href="#常数比例系数划分" class="headerlink" title="常数比例系数划分"></a>常数比例系数划分</h4><p>我们以划分后子问题的规模为1:9为例，其递归表达式为：<br>$$<br>T(n) = T(\frac{1}{10}) + T(\frac{9}{10}) + \Theta(n)<br>$$</p>
+<p><img src="tree.jpg" alt="递归树"></p>
+<p>从图中可以看出即便是1:9这样不平衡的划分，但是树的高度仍然是$\Theta(\lg n)$，因此时间复杂度仍为$\Theta(n\lg n)$。</p>
+<p>事实上，任意一种常数比例的划分，时间复杂度都是$\Theta(n\lg n)$。</p>
+<h2 id="随机化快速排序"><a href="#随机化快速排序" class="headerlink" title="随机化快速排序"></a>随机化快速排序</h2><p>在讨论快速排序的平均情况时，我们的前提假设是，输入的所有排列都是等可能的。但是在实际的工程中，这个假设不是总成立的，所以我们可以在快速排序中引入随机性，来使得算法在任何输入下都有较好的表现。</p>
 <p>我们可以采用在<a href="https://pipixiax0r.github.io/2020/02/23/%E7%AE%97%E6%B3%95/%E6%A6%82%E7%8E%87%E5%88%86%E6%9E%90%E4%B8%8E%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95/" target="_blank" rel="noopener">上一篇文章</a>中采用的显式的对输入进行重新排列，但是在快速排序中我们可以采用一种称为随机抽样(random sampling)的技术，来使得分析变得更简单。随机抽样的关键在于随机选取主元，因为主元与划分有关，因此我们把A[r]与A[p..r]中任何一个元素进行交换。</p>
-<p>首先需要产生一个随机数，在C语言中，用<code>srand()</code>和<code>time()</code>来产生随机种子，再用取余运算将其压缩到合适的区间。 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">random</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">	i = rand() % (r - p + <span class="number">1</span>) + p;</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>更改后的<code>partition()</code>函数： <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>* <span class="built_in">array</span>, <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = p - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="built_in">array</span>[r];				<span class="comment">// 主元</span></span><br><span class="line">	<span class="keyword">int</span> temp, rand_num;</span><br><span class="line"></span><br><span class="line">	rand_num = random(p, r);</span><br><span class="line">	<span class="built_in">array</span>[r] = <span class="built_in">array</span>[rand_num];		<span class="comment">// 随机化</span></span><br><span class="line">	<span class="built_in">array</span>[rand_num] = x;</span><br><span class="line">	x = <span class="built_in">array</span>[r];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = p; j &lt; r; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">array</span>[j] &lt;= x) &#123;</span><br><span class="line">			i++;</span><br><span class="line">			temp = <span class="built_in">array</span>[j];</span><br><span class="line">			<span class="built_in">array</span>[j] = <span class="built_in">array</span>[i];</span><br><span class="line">			<span class="built_in">array</span>[i] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">array</span>[r] = <span class="built_in">array</span>[++i];</span><br><span class="line">	<span class="built_in">array</span>[i] = x;					<span class="comment">// 重新插入主元</span></span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="期望运行时间">期望运行时间</h3>
-<p>快速排序的运行时间与在<code>partition()</code>上花费的时间有关，每调用一次<code>partition()</code>，至少有一个元素被排列到正确的位置，因此<code>partition</code>至多被调用n次。</p>
+<p>首先需要产生一个随机数，在C语言中，用<code>srand()</code>和<code>time()</code>来产生随机种子，再用取余运算将其压缩到合适的区间。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">random</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">	i = rand() % (r - p + <span class="number">1</span>) + p;</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>更改后的<code>partition()</code>函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>* <span class="built_in">array</span>, <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = p - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="built_in">array</span>[r];				<span class="comment">// 主元</span></span><br><span class="line">	<span class="keyword">int</span> temp, rand_num;</span><br><span class="line"></span><br><span class="line">	rand_num = random(p, r);</span><br><span class="line">	<span class="built_in">array</span>[r] = <span class="built_in">array</span>[rand_num];		<span class="comment">// 随机化</span></span><br><span class="line">	<span class="built_in">array</span>[rand_num] = x;</span><br><span class="line">	x = <span class="built_in">array</span>[r];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = p; j &lt; r; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">array</span>[j] &lt;= x) &#123;</span><br><span class="line">			i++;</span><br><span class="line">			temp = <span class="built_in">array</span>[j];</span><br><span class="line">			<span class="built_in">array</span>[j] = <span class="built_in">array</span>[i];</span><br><span class="line">			<span class="built_in">array</span>[i] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">array</span>[r] = <span class="built_in">array</span>[++i];</span><br><span class="line">	<span class="built_in">array</span>[i] = x;					<span class="comment">// 重新插入主元</span></span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="期望运行时间"><a href="#期望运行时间" class="headerlink" title="期望运行时间"></a>期望运行时间</h3><p>快速排序的运行时间与在<code>partition()</code>上花费的时间有关，每调用一次<code>partition()</code>，至少有一个元素被排列到正确的位置，因此<code>partition</code>至多被调用n次。</p>
 <p>调用一次<code>partition()</code>的时间为<code>O(1)</code>再加上一段循环时间，这段时间与<code>partition()</code>中的循环次数成正比，而每进行一次迭代都有一次比较，因此我们统计比较的次数，就能得到时间的上界。</p>
-<p><strong>引理</strong>:当在一个包含n个元素的数组上运行<code>qsort()</code>时，假设在<code>partition()</code>中所做的比较次数为<span class="math inline">\(X\)</span>那么，<code>qsort()</code>的运行时间是<span class="math inline">\(O(n+X)\)</span>。(此处的X为随机变量)</p>
-<p>为了进行分析，我们首先将数组中的各元素按从小到大重命名为<span class="math inline">\(z_1,z_2,z_3,\dots,z_n\)</span>，同时我们还定义<span class="math inline">\(Z_{ij}=\{z_i,z_{i+1},\dots,z_{j}\}\)</span>，即<span class="math inline">\(Z_{ij}\)</span>表示从<span class="math inline">\(z_i\)</span>与<span class="math inline">\(z_J\)</span>之间的所有元素(包含<span class="math inline">\(i\)</span>和<span class="math inline">\(j\)</span>)，然后又要用到上一篇文章所提到的指示器随机变量，定义<span class="math inline">\(X_{ij}\)</span>： <span class="math display">\[
-X_{ij} = I\{z_i \text{与} z_j \text{进行比较}\}
-\]</span> 然后有： <span class="math display">\[
-X = \sum_{i=1}^{n-1} \sum_{j=i+1}^{n}X_{ij}
-\]</span> 因为在一次调用中，元素至多被比较一次，所以<span class="math inline">\(i=1,j=2\)</span>与<span class="math inline">\(i=2,j=1\)</span>只进行了一次，因此变量<span class="math inline">\(j\)</span>起始从<span class="math inline">\(i+1\)</span>开始。 <span class="math display">\[
-\begin{aligned}
-E[X] &amp;= E[\sum_{i=1}^{n-1} \sum_{j=i+1}^{n}X_{ij}] \\
-&amp;= \sum_{i=1}^{n-1} \sum_{j=i+1}^{n}E[X_{ij}] \\
-&amp;= \sum_{i=1}^{n-1} \sum_{j=i+1}^{n}Pr\{z_i与z_j进行比较\} \\
-\end{aligned}
-\]</span> <span class="math inline">\(z_i\)</span>与<span class="math inline">\(z_j\)</span>两种进行了比较，当且仅当两者其中一个被选为主元，而对于<span class="math inline">\(Z_{ij}\)</span>中任何一个元素被选作主元的可能性都是一样的，因此有： <span class="math display">\[
-\begin{aligned}
-Pr\{z_i与z_j进行比较\} &amp;= Pr\{z_i或z_j是集合Z_{ij}中选中的主元\} \\
-&amp;= Pr\{z_i是集合Z_{ij}中选中的主元\} +Pr\{z_j是集合Z_{ij}中选中的主元\} \\
-&amp;= \frac{1}{j-i+1} + \frac{1}{j-i+1} = \frac{2}{j-i+1}
-\end{aligned}
-\]</span> 最终我们可以得到： <span class="math display">\[
-E[X] = \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \frac{2}{j-i+1} = \sum_{i=1}^{n-1}\sum_{k=1}^{n-i} \frac{2}{k+1} \lt \sum_{i=1}^{n-1}\sum_{k=1}^{n} \frac{2}{k} = \sum_{i=1}^{n-1}O(\log n) = O(n\log n)
-\]</span> 计算累加和时，将变量做了一个变换(<span class="math inline">\(k=j-i\)</span>)，最后求和还会再次用到调和级数的界的性质。</p>
-<p>最终，我们得到了结论，在元素相异的情况下，随机化快速排序的期望时间为<span class="math inline">\(O(n\log n)\)</span></p>
+<p><strong>引理</strong>:当在一个包含n个元素的数组上运行<code>qsort()</code>时，假设在<code>partition()</code>中所做的比较次数为$X$那么，<code>qsort()</code>的运行时间是$O(n+X)$。(此处的X为随机变量)</p>
+<p>为了进行分析，我们首先将数组中的各元素按从小到大重命名为$z_1,z_2,z_3,\dots,z_n$，同时我们还定义$Z_{ij}={z_i,z_{i+1},\dots,z_{j}}$，即$Z_{ij}$表示从$z_i$与$z_J$之间的所有元素(包含$i$和$j$)，然后又要用到上一篇文章所提到的指示器随机变量，定义$X_{ij}$：<br>$$<br>X_{ij} = I{z_i \text{与} z_j \text{进行比较}}<br>$$<br>然后有：<br>$$<br>X = \sum_{i=1}^{n-1} \sum_{j=i+1}^{n}X_{ij}<br>$$<br>因为在一次调用中，元素至多被比较一次，所以$i=1,j=2$与$i=2,j=1$只进行了一次，因此变量$j$起始从$i+1$开始。<br>$$<br>\begin{aligned}<br>E[X] &amp;= E[\sum_{i=1}^{n-1} \sum_{j=i+1}^{n}X_{ij}] \<br>&amp;= \sum_{i=1}^{n-1} \sum_{j=i+1}^{n}E[X_{ij}] \<br>&amp;= \sum_{i=1}^{n-1} \sum_{j=i+1}^{n}Pr{z_i与z_j进行比较} \<br>\end{aligned}<br>$$<br>$z_i$与$z_j$两种进行了比较，当且仅当两者其中一个被选为主元，而对于$Z_{ij}$中任何一个元素被选作主元的可能性都是一样的，因此有：<br>$$<br>\begin{aligned}<br>Pr{z_i与z_j进行比较} &amp;= Pr{z_i或z_j是集合Z_{ij}中选中的主元} \<br>&amp;= Pr{z_i是集合Z_{ij}中选中的主元} +Pr{z_j是集合Z_{ij}中选中的主元} \<br>&amp;= \frac{1}{j-i+1} + \frac{1}{j-i+1} = \frac{2}{j-i+1}<br>\end{aligned}<br>$$<br>最终我们可以得到：<br>$$<br>E[X] = \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \frac{2}{j-i+1} = \sum_{i=1}^{n-1}\sum_{k=1}^{n-i} \frac{2}{k+1} \lt \sum_{i=1}^{n-1}\sum_{k=1}^{n} \frac{2}{k} = \sum_{i=1}^{n-1}O(\log n) = O(n\log n)<br>$$<br>计算累加和时，将变量做了一个变换($k=j-i$)，最后求和还会再次用到调和级数的界的性质。</p>
+<p>最终，我们得到了结论，在元素相异的情况下，随机化快速排序的期望时间为$O(n\log n)$</p>
 
     </div>
 
@@ -672,7 +633,7 @@ E[X] = \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \frac{2}{j-i+1} = \sum_{i=1}^{n-1}\sum_
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -680,7 +641,7 @@ E[X] = \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \frac{2}{j-i+1} = \sum_{i=1}^{n-1}\sum_
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
 
         
 
@@ -713,6 +674,7 @@ E[X] = \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \frac{2}{j-i+1} = \sum_{i=1}^{n-1}\sum_
   
   <script src="/js/affix.js?v=7.3.0"></script>
   <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
 
 
   

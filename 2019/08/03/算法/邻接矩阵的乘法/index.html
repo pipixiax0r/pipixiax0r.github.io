@@ -4,7 +4,7 @@
 
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="">
 <head>
   <meta charset="UTF-8">
 <meta name="generator" content="Hexo 3.9.0">
@@ -26,11 +26,11 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '7.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="邻接矩阵乘法 设有一个矩阵\(M\)，其矩阵表示如下： \[ \begin{bmatrix}  0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\   1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\\   1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\\   0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\ \end{bmatrix} \] \(M^2\)为 \[ \begi">
+  <meta name="description" content="邻接矩阵乘法设有一个矩阵$M$，其矩阵表示如下：$$\begin{bmatrix} 0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\ 1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\ 1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\ 0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\end{bmatrix}$$ $M^2$为$$\begin{bmatrix} 2 &amp;amp; 0 &amp;">
 <meta name="keywords" content="邻接矩阵,图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="邻接矩阵的乘法">
 <meta property="og:url" content="http://yoursite.com/2019/08/03/算法/邻接矩阵的乘法/index.html">
 <meta property="og:site_name" content="Pipixiax0r&#39;s Blog">
-<meta property="og:description" content="邻接矩阵乘法 设有一个矩阵\(M\)，其矩阵表示如下： \[ \begin{bmatrix}  0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\   1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\\   1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\\   0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\ \end{bmatrix} \] \(M^2\)为 \[ \begi">
+<meta property="og:description" content="邻接矩阵乘法设有一个矩阵$M$，其矩阵表示如下：$$\begin{bmatrix} 0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\ 1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\ 1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\ 0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\end{bmatrix}$$ $M^2$为$$\begin{bmatrix} 2 &amp;amp; 0 &amp;">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-08-03T15:05:24.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="邻接矩阵的乘法">
-<meta name="twitter:description" content="邻接矩阵乘法 设有一个矩阵\(M\)，其矩阵表示如下： \[ \begin{bmatrix}  0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\   1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\\   1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\\   0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\ \end{bmatrix} \] \(M^2\)为 \[ \begi">
+<meta name="twitter:description" content="邻接矩阵乘法设有一个矩阵$M$，其矩阵表示如下：$$\begin{bmatrix} 0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\ 1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\ 1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1\ 0 &amp;amp; 1 &amp;amp; 1 &amp;amp; 0\\end{bmatrix}$$ $M^2$为$$\begin{bmatrix} 2 &amp;amp; 0 &amp;">
   <link rel="canonical" href="http://yoursite.com/2019/08/03/算法/邻接矩阵的乘法/">
 
 
@@ -341,36 +341,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="邻接矩阵乘法">邻接矩阵乘法</h1>
-<p>设有一个矩阵<span class="math inline">\(M\)</span>，其矩阵表示如下： <span class="math display">\[
-\begin{bmatrix}
- 0 &amp; 1 &amp; 1 &amp; 0\\ 
- 1 &amp; 0 &amp; 0 &amp; 1\\ 
- 1 &amp; 0 &amp; 0 &amp; 1\\ 
- 0 &amp; 1 &amp; 1 &amp; 0\\
-\end{bmatrix}
-\]</span></p>
-<p><span class="math inline">\(M^2\)</span>为 <span class="math display">\[
-\begin{bmatrix}
- 2 &amp; 0 &amp; 0 &amp; 2\\ 
- 0 &amp; 2 &amp; 2 &amp; 0\\ 
- 0 &amp; 2 &amp; 2 &amp; 0\\ 
- 2 &amp; 0 &amp; 0 &amp; 2\\
-\end{bmatrix}
-\]</span> <span class="math inline">\(M^2_{(i,j)}\)</span> 为<span class="math inline">\(M^2\)</span>的第<span class="math inline">\(i\)</span>行<span class="math inline">\(j\)</span>列所在的元素，<span class="math inline">\(M^2_{(i,j)}\)</span>可以理解为第<span class="math inline">\(i\)</span>个元素到第<span class="math inline">\(j\)</span>个元素长度为2路径条数。</p>
-<p>推广到<span class="math inline">\(M^n\)</span>的情况即，第<span class="math inline">\(i\)</span>个元素到第<span class="math inline">\(j\)</span>个元素长度为<span class="math inline">\(n\)</span>路径条数。</p>
+        <h1 id="邻接矩阵乘法"><a href="#邻接矩阵乘法" class="headerlink" title="邻接矩阵乘法"></a>邻接矩阵乘法</h1><p>设有一个矩阵$M$，其矩阵表示如下：<br>$$<br>\begin{bmatrix}<br> 0 &amp; 1 &amp; 1 &amp; 0\<br> 1 &amp; 0 &amp; 0 &amp; 1\<br> 1 &amp; 0 &amp; 0 &amp; 1\<br> 0 &amp; 1 &amp; 1 &amp; 0\<br>\end{bmatrix}<br>$$</p>
+<p>$M^2$为<br>$$<br>\begin{bmatrix}<br> 2 &amp; 0 &amp; 0 &amp; 2\<br> 0 &amp; 2 &amp; 2 &amp; 0\<br> 0 &amp; 2 &amp; 2 &amp; 0\<br> 2 &amp; 0 &amp; 0 &amp; 2\<br>\end{bmatrix}<br>$$<br>$M^2_{(i,j)}$ 为$M^2$的第$i$行$j$列所在的元素，$M^2_{(i,j)}$可以理解为第$i$个元素到第$j$个元素长度为2路径条数。</p>
+<p>推广到$M^n$的情况即，第$i$个元素到第$j$个元素长度为$n$路径条数。</p>
 <a id="more"></a>
-<h2 id="本质">本质</h2>
-<p>将矩阵表示为列向量形式，<span class="math inline">\(M=(V_1, V_2, ..., V_n)\)</span>，由于邻接矩阵是对称矩阵，所以有<span class="math inline">\(M^T=M\)</span>，即：<span class="math inline">\(M^2=M^TM=M \otimes M\)</span>，所以<span class="math inline">\(M^2\)</span>可表示为 <span class="math display">\[
-\begin{bmatrix}
- V_1V_1 &amp; V_1V_2 &amp; V_1V_3 &amp; V_1V_4\\ 
- V_2V_1 &amp; V_2V_2 &amp; V_2V_3 &amp; V_2V_4\\ 
- V_3V_1 &amp; V_3V_2 &amp; V_3V_3 &amp; V_3V_4\\ 
- V_4V_1 &amp; V_4V_2 &amp; V_4V_3 &amp; V_4V_4\\
-\end{bmatrix}
-\]</span> <span class="math inline">\(V_iV_j\)</span>(两向量的内积)可以理解为第i个元素和第j个元素所共有的相邻结点数量之和，即长度为2的路径条数，得到的<span class="math inline">\(M^2\)</span>也是对称矩阵。</p>
-<p>推广到<span class="math inline">\(M^3\)</span>的情况，<span class="math inline">\(M^3=M^2M\)</span>由上面的推导易得，<span class="math inline">\(M^2_{(i,j)}\)</span>是元素<span class="math inline">\(i\)</span>到元素<span class="math inline">\(j\)</span>长度为2的路径条数，<span class="math inline">\(M_{(k,j)}\)</span>是元素<span class="math inline">\(k\)</span>到元素<span class="math inline">\(j\)</span>的长度为1的路径条数，两者相乘可以得到经过<span class="math inline">\(j\)</span>从<span class="math inline">\(i\)</span>到<span class="math inline">\(k\)</span>的所有路径数，将经过所有点的路径数相加就能得到长度为3的从<span class="math inline">\(i\)</span>到<span class="math inline">\(k\)</span>的所有路径数。</p>
-<p>所以<span class="math inline">\(M^n_{(i,j)}\)</span>表示从<span class="math inline">\(i\)</span>到<span class="math inline">\(j\)</span>长度为<span class="math inline">\(n\)</span>的路径数。</p>
+
+<h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><p>将矩阵表示为列向量形式，$M=(V_1, V_2, …, V_n)$，由于邻接矩阵是对称矩阵，所以有$M^T=M$，即：$M^2=M^TM=M \otimes M$，所以$M^2$可表示为<br>$$<br>\begin{bmatrix}<br> V_1V_1 &amp; V_1V_2 &amp; V_1V_3 &amp; V_1V_4\<br> V_2V_1 &amp; V_2V_2 &amp; V_2V_3 &amp; V_2V_4\<br> V_3V_1 &amp; V_3V_2 &amp; V_3V_3 &amp; V_3V_4\<br> V_4V_1 &amp; V_4V_2 &amp; V_4V_3 &amp; V_4V_4\<br>\end{bmatrix}<br>$$<br>$V_iV_j$(两向量的内积)可以理解为第i个元素和第j个元素所共有的相邻结点数量之和，即长度为2的路径条数，得到的$M^2$也是对称矩阵。</p>
+<p>推广到$M^3$的情况，$M^3=M^2M$由上面的推导易得，$M^2_{(i,j)}$是元素$i$到元素$j$长度为2的路径条数，$M_{(k,j)}$是元素$k$到元素$j$的长度为1的路径条数，两者相乘可以得到经过$j$从$i$到$k$的所有路径数，将经过所有点的路径数相加就能得到长度为3的从$i$到$k$的所有路径数。</p>
+<p>所以$M^n_{(i,j)}$表示从$i$到$j$长度为$n$的路径数。</p>
 
     </div>
 
@@ -623,7 +601,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -631,7 +609,7 @@
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
 
         
 
@@ -664,6 +642,7 @@
   
   <script src="/js/affix.js?v=7.3.0"></script>
   <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
 
 
   

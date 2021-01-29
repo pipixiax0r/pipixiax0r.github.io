@@ -4,7 +4,7 @@
 
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="">
 <head>
   <meta charset="UTF-8">
 <meta name="generator" content="Hexo 3.9.0">
@@ -26,11 +26,11 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '7.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="递归表达式 递归表达式是非常强大的工具，它能用最简单的式子表达出复杂的问题。但是很多时候要求算法的复杂度时，递归就成了我们的障碍，因此，了解递归式的解法是有很必要的。">
+  <meta name="description" content="递归表达式递归表达式是非常强大的工具，它能用最简单的式子表达出复杂的问题。但是很多时候要求算法的复杂度时，递归就成了我们的障碍，因此，了解递归式的解法是有很必要的。">
 <meta name="keywords" content="算法导论,递归,主定理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="求解递归式">
 <meta property="og:url" content="http://yoursite.com/2020/02/12/算法/求解递归式/index.html">
 <meta property="og:site_name" content="Pipixiax0r&#39;s Blog">
-<meta property="og:description" content="递归表达式 递归表达式是非常强大的工具，它能用最简单的式子表达出复杂的问题。但是很多时候要求算法的复杂度时，递归就成了我们的障碍，因此，了解递归式的解法是有很必要的。">
+<meta property="og:description" content="递归表达式递归表达式是非常强大的工具，它能用最简单的式子表达出复杂的问题。但是很多时候要求算法的复杂度时，递归就成了我们的障碍，因此，了解递归式的解法是有很必要的。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2020/02/12/算法/求解递归式/recursive_tree.jpg">
 <meta property="og:updated_time" content="2020-02-13T09:47:06.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="求解递归式">
-<meta name="twitter:description" content="递归表达式 递归表达式是非常强大的工具，它能用最简单的式子表达出复杂的问题。但是很多时候要求算法的复杂度时，递归就成了我们的障碍，因此，了解递归式的解法是有很必要的。">
+<meta name="twitter:description" content="递归表达式递归表达式是非常强大的工具，它能用最简单的式子表达出复杂的问题。但是很多时候要求算法的复杂度时，递归就成了我们的障碍，因此，了解递归式的解法是有很必要的。">
 <meta name="twitter:image" content="http://yoursite.com/2020/02/12/算法/求解递归式/recursive_tree.jpg">
   <link rel="canonical" href="http://yoursite.com/2020/02/12/算法/求解递归式/">
 
@@ -353,39 +353,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="递归表达式">递归表达式</h2>
-<p>递归表达式是非常强大的工具，它能用最简单的式子表达出复杂的问题。但是很多时候要求算法的复杂度时，递归就成了我们的障碍，因此，了解递归式的解法是有很必要的。 <a id="more"></a> 以下介绍三种递归式的解法：</p>
-<h3 id="代入法">代入法</h3>
-<p>先猜测一个界，然后通过数学归纳法证明这个界是正确性。从方法的描述就能看出这种方法不常用，因为它过于mathematical，对于我这种数学菜鸡用起来就是灾难。</p>
-<h3 id="递归树">递归树</h3>
-<p>这是最<strong>通用</strong>的方法，没有太多限制，使用起来比较<strong>简单</strong>，唯一的缺点是不够严谨。</p>
+        <h2 id="递归表达式"><a href="#递归表达式" class="headerlink" title="递归表达式"></a>递归表达式</h2><p>递归表达式是非常强大的工具，它能用最简单的式子表达出复杂的问题。但是很多时候要求算法的复杂度时，递归就成了我们的障碍，因此，了解递归式的解法是有很必要的。</p>
+<a id="more"></a>
+<p>以下介绍三种递归式的解法：</p>
+<h3 id="代入法"><a href="#代入法" class="headerlink" title="代入法"></a>代入法</h3><p>先猜测一个界，然后通过数学归纳法证明这个界是正确性。从方法的描述就能看出这种方法不常用，因为它过于mathematical，对于我这种数学菜鸡用起来就是灾难。</p>
+<h3 id="递归树"><a href="#递归树" class="headerlink" title="递归树"></a>递归树</h3><p>这是最<strong>通用</strong>的方法，没有太多限制，使用起来比较<strong>简单</strong>，唯一的缺点是不够严谨。</p>
 <p>递归树，即把递归式转化成一棵树，用结点表示递归调用的代价。最后通过求和来求解递归式。</p>
-<p>首先从归并排序这一简单的例子来进行说明，首先规定<span class="math inline">\(T(n)\)</span>是排序算法的最坏情况运行时间，不难得到其递归表达式：</p>
-<p><span class="math display">\[
-T(n)=\left\{
-\begin{array}{rcl}
-\Theta(1)       &amp;      &amp; n=1\\
-2\Theta(n/2)+\Theta(n)     &amp;      &amp; {n&gt;1}
-\end{array}
-\right.
-\]</span></p>
-<figure>
-<img src="recursive_tree.jpg" alt="递归树"><figcaption>递归树</figcaption>
-</figure>
-<p>从图片可以看出递归树的每层和为<span class="math inline">\(cn\)</span>，每层的高度为<span class="math inline">\(\log n\)</span>，求和就能得到<span class="math inline">\(T(n)=\Theta(n \log n)\)</span></p>
-<h3 id="主定理">主定理</h3>
-<p>主定理(master theorem)，听名字你就能看出这是一个很吊的定理。事实上它是由递归树推导出的三个公式，可以<strong>快速</strong>的帮你解决<strong>绝大多数</strong>问题。</p>
+<p>首先从归并排序这一简单的例子来进行说明，首先规定$T(n)$是排序算法的最坏情况运行时间，不难得到其递归表达式：</p>
+<p>$$<br>T(n)=\left{<br>\begin{array}{rcl}<br>\Theta(1)       &amp;      &amp; n=1\<br>2\Theta(n/2)+\Theta(n)     &amp;      &amp; {n&gt;1}<br>\end{array}<br>\right.<br>$$</p>
+<p><img src="recursive_tree.jpg" alt="递归树"></p>
+<p>从图片可以看出递归树的每层和为$cn$，每层的高度为$\log n$，求和就能得到$T(n)=\Theta(n \log n)$</p>
+<h3 id="主定理"><a href="#主定理" class="headerlink" title="主定理"></a>主定理</h3><p>主定理(master theorem)，听名字你就能看出这是一个很吊的定理。事实上它是由递归树推导出的三个公式，可以<strong>快速</strong>的帮你解决<strong>绝大多数</strong>问题。</p>
 <p>主定理使用起来也很简单，只需要按照不同情况使用对应的公式即可。</p>
-<p><strong>主定理</strong>：</p>
-<p>令<span class="math inline">\(a \geq 1\)</span> 和<span class="math inline">\(b \gt 1\)</span>是常数，<span class="math inline">\(f(n)\)</span>是一个函数，<span class="math inline">\(T(n)\)</span>是定义在非负整数上的递归式: <span class="math display">\[
-T(n) = aT(n/b) + f(n)
-\]</span></p>
+<p><strong>主定理</strong>： </p>
+<p>令$a \geq 1$ 和$b \gt 1$是常数，$f(n)$是一个函数，$T(n)$是定义在非负整数上的递归式:<br>$$<br>T(n) = aT(n/b) + f(n)<br>$$</p>
 <ul>
-<li>若对某个常数<span class="math inline">\(\varepsilon \gt 0\)</span>有<span class="math inline">\(f(n)=O(n^{\log_{b}{a}-\varepsilon})\)</span>，则<span class="math inline">\(T(n)=\Theta(n^{log_{b}{a}})\)</span></li>
-<li>若<span class="math inline">\(f(n)=\Theta(n^{\log_{b}{a}})\)</span>，则<span class="math inline">\(T(n)=\Theta(n^{\log_{b}{a}} \lg n)\)</span></li>
-<li>若对某个常数<span class="math inline">\(\varepsilon \gt 0\)</span>有<span class="math inline">\(f(n)=\Omega(n^{\log_{b}{a}+\varepsilon})\)</span>，且对某个常数<span class="math inline">\(c&lt;1\)</span>和所有足够大的<span class="math inline">\(n\)</span>有<span class="math inline">\(af(n/b)\leq cf(n)\)</span>则<span class="math inline">\(T(n)=\Theta(f(n))\)</span></li>
+<li>若对某个常数$\varepsilon \gt 0$有$f(n)=O(n^{\log_{b}{a}-\varepsilon})$，则$T(n)=\Theta(n^{log_{b}{a}})$</li>
+<li>若$f(n)=\Theta(n^{\log_{b}{a}})$，则$T(n)=\Theta(n^{\log_{b}{a}} \lg n)$</li>
+<li>若对某个常数$\varepsilon \gt 0$有$f(n)=\Omega(n^{\log_{b}{a}+\varepsilon})$，且对某个常数$c&lt;1$和所有足够大的$n$有$af(n/b)\leq cf(n)$则$T(n)=\Theta(f(n))$</li>
 </ul>
-<p>主定理之所以说是覆盖绝大多数情况而不是全部，有两个原因，首先<span class="math inline">\(T(n)\)</span>需要满足上述的要求，其次在三种情况之间有一定间隙，也就是说，即便满足<span class="math inline">\(T(n)\)</span>的格式也有可能无法使用主定理，这就是主定理不能覆盖全部情况的原因。</p>
+<p>主定理之所以说是覆盖绝大多数情况而不是全部，有两个原因，首先$T(n)$需要满足上述的要求，其次在三种情况之间有一定间隙，也就是说，即便满足$T(n)$的格式也有可能无法使用主定理，这就是主定理不能覆盖全部情况的原因。</p>
 
     </div>
 
@@ -640,7 +627,7 @@ T(n) = aT(n/b) + f(n)
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -648,7 +635,7 @@ T(n) = aT(n/b) + f(n)
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
 
         
 
@@ -681,6 +668,7 @@ T(n) = aT(n/b) + f(n)
   
   <script src="/js/affix.js?v=7.3.0"></script>
   <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
 
 
   

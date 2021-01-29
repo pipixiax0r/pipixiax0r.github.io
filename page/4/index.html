@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="/css/main.css?v=7.3.0">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
@@ -347,11 +347,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="不同出栈顺序的个数"><a href="#不同出栈顺序的个数" class="headerlink" title="不同出栈顺序的个数"></a>不同出栈顺序的个数</h1><blockquote>
+          <h1 id="不同出栈顺序的个数">不同出栈顺序的个数</h1>
+<blockquote>
 <p>N个不同元素依次进栈，能够得到多少种不同的出栈序列？</p>
 </blockquote>
 <p>首先，不同元素<strong>依次进栈</strong>，也就说明入栈<strong>顺序是固定的</strong>，我们知道栈的主要操作有3种：入栈、出栈、取栈顶，这里用不到取栈顶这种操作，也就只有入栈和出栈这两种</p>
-<p>我们可以用1表示入栈，用0表示出栈，那么这个问题就变成求1、0两个数字的组合问题，共有$n \choose 2n$ 种 (总共有2n个空位选择其中n个填入1，其余填入0)</p>
+<p>我们可以用1表示入栈，用0表示出栈，那么这个问题就变成求1、0两个数字的组合问题，共有<span class="math inline">\(n \choose 2n\)</span> 种 (总共有2n个空位选择其中n个填入1，其余填入0)</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -474,9 +475,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="邻接矩阵乘法"><a href="#邻接矩阵乘法" class="headerlink" title="邻接矩阵乘法"></a>邻接矩阵乘法</h1><p>设有一个矩阵$M$，其矩阵表示如下：<br>$$<br>\begin{bmatrix}<br> 0 &amp; 1 &amp; 1 &amp; 0\<br> 1 &amp; 0 &amp; 0 &amp; 1\<br> 1 &amp; 0 &amp; 0 &amp; 1\<br> 0 &amp; 1 &amp; 1 &amp; 0\<br>\end{bmatrix}<br>$$</p>
-<p>$M^2$为<br>$$<br>\begin{bmatrix}<br> 2 &amp; 0 &amp; 0 &amp; 2\<br> 0 &amp; 2 &amp; 2 &amp; 0\<br> 0 &amp; 2 &amp; 2 &amp; 0\<br> 2 &amp; 0 &amp; 0 &amp; 2\<br>\end{bmatrix}<br>$$<br>$M^2_{(i,j)}$ 为$M^2$的第$i$行$j$列所在的元素，$M^2_{(i,j)}$可以理解为第$i$个元素到第$j$个元素长度为2路径条数。</p>
-<p>推广到$M^n$的情况即，第$i$个元素到第$j$个元素长度为$n$路径条数。</p>
+          <h1 id="邻接矩阵乘法">邻接矩阵乘法</h1>
+<p>设有一个矩阵<span class="math inline">\(M\)</span>，其矩阵表示如下： <span class="math display">\[
+\begin{bmatrix}
+ 0 &amp; 1 &amp; 1 &amp; 0\\ 
+ 1 &amp; 0 &amp; 0 &amp; 1\\ 
+ 1 &amp; 0 &amp; 0 &amp; 1\\ 
+ 0 &amp; 1 &amp; 1 &amp; 0\\
+\end{bmatrix}
+\]</span></p>
+<p><span class="math inline">\(M^2\)</span>为 <span class="math display">\[
+\begin{bmatrix}
+ 2 &amp; 0 &amp; 0 &amp; 2\\ 
+ 0 &amp; 2 &amp; 2 &amp; 0\\ 
+ 0 &amp; 2 &amp; 2 &amp; 0\\ 
+ 2 &amp; 0 &amp; 0 &amp; 2\\
+\end{bmatrix}
+\]</span> <span class="math inline">\(M^2_{(i,j)}\)</span> 为<span class="math inline">\(M^2\)</span>的第<span class="math inline">\(i\)</span>行<span class="math inline">\(j\)</span>列所在的元素，<span class="math inline">\(M^2_{(i,j)}\)</span>可以理解为第<span class="math inline">\(i\)</span>个元素到第<span class="math inline">\(j\)</span>个元素长度为2路径条数。</p>
+<p>推广到<span class="math inline">\(M^n\)</span>的情况即，第<span class="math inline">\(i\)</span>个元素到第<span class="math inline">\(j\)</span>个元素长度为<span class="math inline">\(n\)</span>路径条数。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -610,17 +626,16 @@
 
       
           
-            <h2 id="一些废话"><a href="#一些废话" class="headerlink" title="一些废话"></a>一些废话</h2><p>之前阿里云的服务器到期之后就没续了, 之前写了好久的文章也没了还挺可惜的(虽然没啥人看233), 本着能白嫖为啥要花钱的精神, 花了点时间搞了这个东西出来.</p>
+            <h2 id="一些废话">一些废话</h2>
+<p>之前阿里云的服务器到期之后就没续了, 之前写了好久的文章也没了还挺可惜的(虽然没啥人看233), 本着能白嫖为啥要花钱的精神, 花了点时间搞了这个东西出来.</p>
 <p>hexo虽然是静态的, 但是感觉功能还蛮强大, 应该完全够用了, 也不用担心安全问题.</p>
-<h2 id="为什么重新开始写博客"><a href="#为什么重新开始写博客" class="headerlink" title="为什么重新开始写博客"></a>为什么重新开始写博客</h2><p>之前阿里云的博客, 写了一堆类似教程之类的东西, 基本没人看, 全是爬虫在访问,感觉没啥意义. 最近看了垠神的博客, 受到了点启发, blog这种东西本来就是写给自己看的, 自己开心就好, 没必要像各种教程一样写的一板一眼.</p>
+<h2 id="为什么重新开始写博客">为什么重新开始写博客</h2>
+<p>之前阿里云的博客, 写了一堆类似教程之类的东西, 基本没人看, 全是爬虫在访问,感觉没啥意义. 最近看了垠神的博客, 受到了点启发, blog这种东西本来就是写给自己看的, 自己开心就好, 没必要像各种教程一样写的一板一眼.</p>
 <p>所以这个blog主要用来:</p>
-<ol>
-<li><p>记录一下最近学了些啥</p>
-</li>
-<li><p>发表一点个人想法</p>
-</li>
-<li><p>吐槽</p>
-</li>
+<ol type="1">
+<li><p>记录一下最近学了些啥</p></li>
+<li><p>发表一点个人想法</p></li>
+<li><p>吐槽</p></li>
 </ol>
 
           

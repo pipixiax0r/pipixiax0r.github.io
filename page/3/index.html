@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="/css/main.css?v=7.3.0">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
@@ -337,7 +337,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>$O$这是用于描述算法复杂度最常用的符号，也是被误用最多的符号，许多人将其与$\Theta$符号所混淆，或者说并不完全理解其含义。所以我将从其数学表示来简单解释一下我们会遇到的常见的渐进符号。</p>
+          <p><span class="math inline">\(O\)</span>这是用于描述算法复杂度最常用的符号，也是被误用最多的符号，许多人将其与<span class="math inline">\(\Theta\)</span>符号所混淆，或者说并不完全理解其含义。所以我将从其数学表示来简单解释一下我们会遇到的常见的渐进符号。
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -471,10 +471,13 @@
 
       
           
-            <h1 id="近况"><a href="#近况" class="headerlink" title="近况"></a>近况</h1><p>受到疫情影响, 每天几乎在家, 打打游戏, 看看视频, 憋不住了就去人少的地方遛弯。</p>
-<h1 id="近期安排"><a href="#近期安排" class="headerlink" title="近期安排"></a>近期安排</h1><p>打算在初试成绩公布之前多看看书，之前立下的FLAG《算法导论》和《深入理解计算机系统》都还没怎么看，之后应该会更新一些相关的读书笔记。</p>
+            <h1 id="近况">近况</h1>
+<p>受到疫情影响, 每天几乎在家, 打打游戏, 看看视频, 憋不住了就去人少的地方遛弯。</p>
+<h1 id="近期安排">近期安排</h1>
+<p>打算在初试成绩公布之前多看看书，之前立下的FLAG《算法导论》和《深入理解计算机系统》都还没怎么看，之后应该会更新一些相关的读书笔记。</p>
 <p>买了一些器材和书之后，准备开始系统的学习一下摄影，正在考虑要不要专门开一个分类，把照片挂到里面，现在街上人很少，感觉很适合作为人文拍摄的素材。</p>
-<h1 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h1><p>捣鼓了一下把评论给弄好了，一个人默默的更新博客感觉缺乏动力，所以搞个评论增加一下互动。</p>
+<h1 id="评论系统">评论系统</h1>
+<p>捣鼓了一下把评论给弄好了，一个人默默的更新博客感觉缺乏动力，所以搞个评论增加一下互动。</p>
 
           
         
@@ -594,7 +597,7 @@
             <blockquote>
 <p>有的事情如果不在本科期间去做，想必就没有机会做了</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li>《 算法导论》核心章节及课后习题 主要算法复现</li>
 <li>《深入理解计算机系统》核心章节及课后习题 及相应的Lab</li>
 <li>《SICP》 实现一个Scheme解释器</li>
@@ -715,7 +718,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="大牛的基本素养"><a href="#大牛的基本素养" class="headerlink" title="大牛的基本素养"></a>大牛的基本素养</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想要成为大牛并不容易，需要多方面的要素或者说一定的天赋才行，要成为真正的大牛超出了本文所讨论的范畴，我相信也不是一篇文章所能讲明白的，因此标题不叫如何成为大牛，而是大牛的基本素养，也就是说具备基本素养不一定能成为大牛，基本素养仅仅是必要条件罢了。</p>
+          <h1 id="大牛的基本素养">大牛的基本素养</h1>
+<h2 id="前言">前言</h2>
+<p>想要成为大牛并不容易，需要多方面的要素或者说一定的天赋才行，要成为真正的大牛超出了本文所讨论的范畴，我相信也不是一篇文章所能讲明白的，因此标题不叫如何成为大牛，而是大牛的基本素养，也就是说具备基本素养不一定能成为大牛，基本素养仅仅是必要条件罢了。</p>
 <p>标题本来想叫做合格的程序员的基本素养，经过思考之后我觉得这并不只是成为一名成功的程序员的基本素养，也适用于其他的领域。</p>
           <!--noindex-->
           
@@ -852,8 +857,12 @@
           <blockquote>
 <p>在数据结构的二分查找中常常会遇到的问题，到底是向上取整还是向下取整，向上和向下之间如何进行转化？</p>
 </blockquote>
-<h2 id="除法中的向上取整和向下取整的转化"><a href="#除法中的向上取整和向下取整的转化" class="headerlink" title="除法中的向上取整和向下取整的转化"></a>除法中的向上取整和向下取整的转化</h2><h3 id="公式及证明"><a href="#公式及证明" class="headerlink" title="公式及证明"></a>公式及证明</h3><p>公式如下：</p>
-<p>$$<br>\left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil<br>$$</p>
+<h2 id="除法中的向上取整和向下取整的转化">除法中的向上取整和向下取整的转化</h2>
+<h3 id="公式及证明">公式及证明</h3>
+<p>公式如下：</p>
+<p><span class="math display">\[
+\left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil
+\]</span>
           <!--noindex-->
           
             <div class="post-button text-center">

@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="/css/main.css?v=7.3.0">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="在数据结构的二分查找中常常会遇到的问题，到底是向上取整还是向下取整，向上和向下之间如何进行转化？  除法中的向上取整和向下取整的转化公式及证明公式如下： $$\left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil$$">
+  <meta name="description" content="在数据结构的二分查找中常常会遇到的问题，到底是向上取整还是向下取整，向上和向下之间如何进行转化？  除法中的向上取整和向下取整的转化 公式及证明 公式如下： \[ \left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil \]">
 <meta name="keywords" content="取整">
 <meta property="og:type" content="article">
 <meta property="og:title" content="取整">
 <meta property="og:url" content="http://yoursite.com/2019/08/03/算法/取整/index.html">
 <meta property="og:site_name" content="Pipixiax0r&#39;s Blog">
-<meta property="og:description" content="在数据结构的二分查找中常常会遇到的问题，到底是向上取整还是向下取整，向上和向下之间如何进行转化？  除法中的向上取整和向下取整的转化公式及证明公式如下： $$\left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil$$">
+<meta property="og:description" content="在数据结构的二分查找中常常会遇到的问题，到底是向上取整还是向下取整，向上和向下之间如何进行转化？  除法中的向上取整和向下取整的转化 公式及证明 公式如下： \[ \left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil \]">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-02-10T05:38:54.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="取整">
-<meta name="twitter:description" content="在数据结构的二分查找中常常会遇到的问题，到底是向上取整还是向下取整，向上和向下之间如何进行转化？  除法中的向上取整和向下取整的转化公式及证明公式如下： $$\left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil$$">
+<meta name="twitter:description" content="在数据结构的二分查找中常常会遇到的问题，到底是向上取整还是向下取整，向上和向下之间如何进行转化？  除法中的向上取整和向下取整的转化 公式及证明 公式如下： \[ \left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil \]">
   <link rel="canonical" href="http://yoursite.com/2019/08/03/算法/取整/">
 
 
@@ -354,17 +354,24 @@
         <blockquote>
 <p>在数据结构的二分查找中常常会遇到的问题，到底是向上取整还是向下取整，向上和向下之间如何进行转化？</p>
 </blockquote>
-<h2 id="除法中的向上取整和向下取整的转化"><a href="#除法中的向上取整和向下取整的转化" class="headerlink" title="除法中的向上取整和向下取整的转化"></a>除法中的向上取整和向下取整的转化</h2><h3 id="公式及证明"><a href="#公式及证明" class="headerlink" title="公式及证明"></a>公式及证明</h3><p>公式如下：</p>
-<p>$$<br>\left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil<br>$$</p>
-<a id="more"></a>
-<p>证明过程如下：</p>
-<p>$\left \lceil x \right \rceil$记为$x$向上取整，$\left \lfloor x \right \rfloor$记为$x$向下取整，$M$为被除数，$N$为除数， $M,N,k,r\in Z$, $M$和$N$满足以下关系：</p>
-<p>$$<br>M = kN + r(0&lt;=r&lt;N)<br>$$<br>若$r=0$, $\left \lceil M/N \right \rceil = \left \lceil k \right \rceil = k$, $(M-1)/N=k-1$$</p>
-<p>$\therefore \left \lfloor (M-1)/N+1 \right \rfloor = k = \left \lceil M/N \right \rceil$$</p>
-<p>若$r&gt;0$, $\left \lceil M/N \right \rceil = \left \lceil k+\frac{r}{N} \right \rceil = k+1$, </p>
-<p>$\left \lfloor (M-1)/N+1 \right \rfloor = \left \lfloor (kN+r-1)/N+1 \right \rfloor = \left \lfloor (N+1)+ \frac{r-1}{N} \right \rfloor = N+1$$</p>
-<p>$ \therefore \left \lfloor (M-1)/N+1 \right \rfloor = k+1 = \left \lceil M/N \right \rceil$$</p>
-<h3 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h3><p>当N为2时，有：<br>$$<br>\left \lfloor \frac{M+1}{2} \right \rfloor = \left \lceil \frac{M}{2} \right \rceil<br>$$</p>
+<h2 id="除法中的向上取整和向下取整的转化">除法中的向上取整和向下取整的转化</h2>
+<h3 id="公式及证明">公式及证明</h3>
+<p>公式如下：</p>
+<p><span class="math display">\[
+\left \lfloor (M-1)/N+1 \right \rfloor = \left \lceil M/N \right \rceil
+\]</span> <a id="more"></a> 证明过程如下：</p>
+<p><span class="math inline">\(\left \lceil x \right \rceil\)</span>记为<span class="math inline">\(x\)</span>向上取整，<span class="math inline">\(\left \lfloor x \right \rfloor\)</span>记为<span class="math inline">\(x\)</span>向下取整，<span class="math inline">\(M\)</span>为被除数，<span class="math inline">\(N\)</span>为除数， <span class="math inline">\(M,N,k,r\in Z\)</span>, <span class="math inline">\(M\)</span>和<span class="math inline">\(N\)</span>满足以下关系：</p>
+<p><span class="math display">\[
+M = kN + r(0&lt;=r&lt;N)
+\]</span> 若<span class="math inline">\(r=0\)</span>, <span class="math inline">\(\left \lceil M/N \right \rceil = \left \lceil k \right \rceil = k\)</span>, <span class="math inline">\((M-1)/N=k-1\)</span>$</p>
+<p><span class="math inline">\(\therefore \left \lfloor (M-1)/N+1 \right \rfloor = k = \left \lceil M/N \right \rceil\)</span>$</p>
+<p>若<span class="math inline">\(r&gt;0\)</span>, <span class="math inline">\(\left \lceil M/N \right \rceil = \left \lceil k+\frac{r}{N} \right \rceil = k+1\)</span>,</p>
+<p><span class="math inline">\(\left \lfloor (M-1)/N+1 \right \rfloor = \left \lfloor (kN+r-1)/N+1 \right \rfloor = \left \lfloor (N+1)+ \frac{r-1}{N} \right \rfloor = N+1\)</span>$</p>
+<p>$ (M-1)/N+1 = k+1 = M/N $$</p>
+<h3 id="特殊情况">特殊情况</h3>
+<p>当N为2时，有： <span class="math display">\[
+\left \lfloor \frac{M+1}{2} \right \rfloor = \left \lceil \frac{M}{2} \right \rceil
+\]</span></p>
 
     </div>
 

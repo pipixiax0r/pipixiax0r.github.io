@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="/css/main.css?v=7.3.0">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="雇佣问题假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？ 该策略伪代码如下： 1234567HIRE-ASSISTANT(n)    best = 0    // candidate 0 is a least-qualified dummy candidate    for">
+  <meta name="description" content="雇佣问题 假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？ 该策略伪代码如下： 1234567HIRE-ASSISTANT(n)    best = 0    // candidate 0 is a least-qualified dummy candidate    for">
 <meta name="keywords" content="算法导论,随机算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率分析与随机算法">
 <meta property="og:url" content="http://yoursite.com/2020/02/23/算法/概率分析与随机算法/index.html">
 <meta property="og:site_name" content="Pipixiax0r&#39;s Blog">
-<meta property="og:description" content="雇佣问题假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？ 该策略伪代码如下： 1234567HIRE-ASSISTANT(n)    best = 0    // candidate 0 is a least-qualified dummy candidate    for">
+<meta property="og:description" content="雇佣问题 假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？ 该策略伪代码如下： 1234567HIRE-ASSISTANT(n)    best = 0    // candidate 0 is a least-qualified dummy candidate    for">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-03-13T15:18:57.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率分析与随机算法">
-<meta name="twitter:description" content="雇佣问题假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？ 该策略伪代码如下： 1234567HIRE-ASSISTANT(n)    best = 0    // candidate 0 is a least-qualified dummy candidate    for">
+<meta name="twitter:description" content="雇佣问题 假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？ 该策略伪代码如下： 1234567HIRE-ASSISTANT(n)    best = 0    // candidate 0 is a least-qualified dummy candidate    for">
   <link rel="canonical" href="http://yoursite.com/2020/02/23/算法/概率分析与随机算法/">
 
 
@@ -351,37 +351,67 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="雇佣问题"><a href="#雇佣问题" class="headerlink" title="雇佣问题"></a>雇佣问题</h1><p>假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？</p>
-<p>该策略伪代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HIRE-ASSISTANT(n)</span><br><span class="line">    best = 0    // candidate 0 is a least-qualified dummy candidate</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        interview candidate i</span><br><span class="line">        if candidate i is better than candidate best</span><br><span class="line">            best = i</span><br><span class="line">            hire candidate i</span><br></pre></td></tr></table></figure>
-
+        <h1 id="雇佣问题">雇佣问题</h1>
+<p>假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？</p>
+<p>该策略伪代码如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HIRE-ASSISTANT(n)</span><br><span class="line">    best = 0    // candidate 0 is a least-qualified dummy candidate</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        interview candidate i</span><br><span class="line">        if candidate i is better than candidate best</span><br><span class="line">            best = i</span><br><span class="line">            hire candidate i</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-
-<h2 id="最坏情况分析"><a href="#最坏情况分析" class="headerlink" title="最坏情况分析"></a>最坏情况分析</h2><p>最坏情况即应聘者的质量从低到高排列，这就导致每推荐一个应聘者就要雇佣一个，并给一笔中介费，即总的费用为$O(n)$。</p>
-<h2 id="概率分析"><a href="#概率分析" class="headerlink" title="概率分析"></a>概率分析</h2><p>为了对费用进行估算，我们需要用到概率分析，而概率分析需要对所有可能输入的分布做出假设，每种分布时间相加取平均值，最终得到目标的期望值。在雇佣问题中，我们假设每种排列出现的机率等可能，即共$n!$种输入，每种概率都是$\frac{1}{n!}$。</p>
-<h1 id="指示器随机变量"><a href="#指示器随机变量" class="headerlink" title="指示器随机变量"></a>指示器随机变量</h1><p>这是一种非常有用的随机变量，可以帮助我们简化需要对分布进行假设的这类问题。</p>
-<p>给定一个样本空间$S$和一个事件$A$，那么事件A对应的指示器随机变量$I{A}$的定义为：<br>$$<br>I{A}=<br>\begin{cases}<br>1&amp; \text{如果A发生} \<br>0&amp; \text{如果A不发生}<br>\end{cases}<br>$$<br>关于指示器随机变量有一个重要的性质：给定一个样本空间$S$和$S$中的一个事件$A$，设$X_a=I{A}$，那么有$E[X_A]=Pr{A}$(Pr{A}为事件A的概率)</p>
+<h2 id="最坏情况分析">最坏情况分析</h2>
+<p>最坏情况即应聘者的质量从低到高排列，这就导致每推荐一个应聘者就要雇佣一个，并给一笔中介费，即总的费用为<span class="math inline">\(O(n)\)</span>。</p>
+<h2 id="概率分析">概率分析</h2>
+<p>为了对费用进行估算，我们需要用到概率分析，而概率分析需要对所有可能输入的分布做出假设，每种分布时间相加取平均值，最终得到目标的期望值。在雇佣问题中，我们假设每种排列出现的机率等可能，即共<span class="math inline">\(n!\)</span>种输入，每种概率都是<span class="math inline">\(\frac{1}{n!}\)</span>。</p>
+<h1 id="指示器随机变量">指示器随机变量</h1>
+<p>这是一种非常有用的随机变量，可以帮助我们简化需要对分布进行假设的这类问题。</p>
+<p>给定一个样本空间<span class="math inline">\(S\)</span>和一个事件<span class="math inline">\(A\)</span>，那么事件A对应的指示器随机变量<span class="math inline">\(I\{A\}\)</span>的定义为： <span class="math display">\[
+I\{A\}=
+\begin{cases}
+1&amp; \text{如果A发生} \\
+0&amp; \text{如果A不发生}
+\end{cases}
+\]</span> 关于指示器随机变量有一个重要的性质：给定一个样本空间<span class="math inline">\(S\)</span>和<span class="math inline">\(S\)</span>中的一个事件<span class="math inline">\(A\)</span>，设<span class="math inline">\(X_a=I\{A\}\)</span>，那么有<span class="math inline">\(E[X_A]=Pr\{A\}\)</span>(Pr{A}为事件A的概率)</p>
 <p>有了这个重要的性质，我们就能把期望和概率联系起来。</p>
-<h2 id="指示器随机变量分析雇佣问题"><a href="#指示器随机变量分析雇佣问题" class="headerlink" title="指示器随机变量分析雇佣问题"></a>指示器随机变量分析雇佣问题</h2><p>设随机变量$X$为雇佣的人数，那么根据期望计算公式得：<br>$$<br>E[X] = \sum_{x=1}^{n}xPr{X=x}<br>$$<br>想直接通过这个公式计算出期望值是困难的，我们需要利用指示器随机变量来分解。</p>
-<p>我们定义一个新变量$X_i$<br>$$<br>X_i = I{\text{应聘者i被雇佣}} =<br>\begin{cases}<br>1&amp; \text{如果应聘者i被雇佣}\<br>0&amp; \text{如果应聘者i未被雇佣}<br>\end{cases}<br>$$<br>我们还能得到：<br>$$<br>X = X_1 + X_2 + \cdots + X_n<br>$$<br>根据指示器随机变量的性质可得：<br>$$<br>E[X_i] = Pr{\text{应聘者i被雇佣}}<br>$$<br>如果应聘者$i$被雇佣，也就说明他比前面$i-1$个应聘者更强，即他是目前为止，即共$i$个人中最强的，由此可得：<br>$$<br>E[X_i] = \frac{1}{i}<br>$$<br>现在来计算$E[X]$<br>$$<br>E[X] = E[\sum_{i=1}^{n}X_i] = \sum_{i=1}^{n}E[X_i] \tag{1}<br>$$<br>$$<br>E[X] = \sum_{i=1}^{n}\frac{1}{i} \tag{2}<br>$$<br>$$<br>E[X] = \ln n + O(1) \tag{3}<br>$$<br>(1)由期望的线性性质得到，(2)由上面的$E[X_i] = \frac{1}{i}$得到，(3)是调和级数求和。</p>
-<p>最终可以得到平均情况下费用的期望是$O(\ln n)$</p>
-<h1 id="随机算法"><a href="#随机算法" class="headerlink" title="随机算法"></a>随机算法</h1><p>对于雇佣问题而言，我们想要分析其算法的平均情况，必须借助于其输入分布的信息。然而往往在实际过程中我们是无法获得分布信息的，这样就阻碍了平均情况的分析，因此我们需要用一个<strong>随机算法</strong>来使得输入分布达到我们所期望的平均。</p>
-<p>随机化雇佣策略伪代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">RANDOMIZED-HIRE-ASSISTANT(n)</span><br><span class="line">    randomly permute the list of candidates</span><br><span class="line">    best = 0    // candidate 0 is a least-qualified dummy candidate</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        interview candidate i</span><br><span class="line">        if candidate i is better than candidate best</span><br><span class="line">            best = i</span><br><span class="line">            hire candidate i</span><br></pre></td></tr></table></figure>
-
+<h2 id="指示器随机变量分析雇佣问题">指示器随机变量分析雇佣问题</h2>
+<p>设随机变量<span class="math inline">\(X\)</span>为雇佣的人数，那么根据期望计算公式得： <span class="math display">\[
+E[X] = \sum_{x=1}^{n}xPr\{X=x\}
+\]</span> 想直接通过这个公式计算出期望值是困难的，我们需要利用指示器随机变量来分解。</p>
+<p>我们定义一个新变量<span class="math inline">\(X_i\)</span> <span class="math display">\[
+X_i = I\{\text{应聘者i被雇佣}\} = 
+\begin{cases}
+1&amp; \text{如果应聘者i被雇佣}\\
+0&amp; \text{如果应聘者i未被雇佣}
+\end{cases}
+\]</span> 我们还能得到： <span class="math display">\[
+X = X_1 + X_2 + \cdots + X_n
+\]</span> 根据指示器随机变量的性质可得： <span class="math display">\[
+E[X_i] = Pr\{\text{应聘者i被雇佣}\}
+\]</span> 如果应聘者<span class="math inline">\(i\)</span>被雇佣，也就说明他比前面<span class="math inline">\(i-1\)</span>个应聘者更强，即他是目前为止，即共<span class="math inline">\(i\)</span>个人中最强的，由此可得： <span class="math display">\[
+E[X_i] = \frac{1}{i}
+\]</span> 现在来计算<span class="math inline">\(E[X]\)</span> <span class="math display">\[
+E[X] = E[\sum_{i=1}^{n}X_i] = \sum_{i=1}^{n}E[X_i] \tag{1}
+\]</span> <span class="math display">\[
+E[X] = \sum_{i=1}^{n}\frac{1}{i} \tag{2}
+\]</span> <span class="math display">\[
+E[X] = \ln n + O(1) \tag{3}
+\]</span> (1)由期望的线性性质得到，(2)由上面的<span class="math inline">\(E[X_i] = \frac{1}{i}\)</span>得到，(3)是调和级数求和。</p>
+<p>最终可以得到平均情况下费用的期望是<span class="math inline">\(O(\ln n)\)</span></p>
+<h1 id="随机算法">随机算法</h1>
+<p>对于雇佣问题而言，我们想要分析其算法的平均情况，必须借助于其输入分布的信息。然而往往在实际过程中我们是无法获得分布信息的，这样就阻碍了平均情况的分析，因此我们需要用一个<strong>随机算法</strong>来使得输入分布达到我们所期望的平均。</p>
+<p>随机化雇佣策略伪代码如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">RANDOMIZED-HIRE-ASSISTANT(n)</span><br><span class="line">    randomly permute the list of candidates</span><br><span class="line">    best = 0    // candidate 0 is a least-qualified dummy candidate</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        interview candidate i</span><br><span class="line">        if candidate i is better than candidate best</span><br><span class="line">            best = i</span><br><span class="line">            hire candidate i</span><br></pre></td></tr></table></figure></p>
 <p>可以看出算法唯一的变化在于预先随机的变换了应聘者的序列。</p>
-<h2 id="随机排列数组"><a href="#随机排列数组" class="headerlink" title="随机排列数组"></a>随机排列数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RANDOMIZE-IN-PLACE(A)</span><br><span class="line">    n = A.length</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        swap A[i] with A[RANDOM(i,n)]</span><br></pre></td></tr></table></figure>
-
-<p>这是一种原址随机排列算法，算法复杂度为$O(n)$。</p>
-<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>证明这个算法能产生一个均匀随机序列之前，我们先证明下面的循环不变式：</p>
-<p><strong>在第2-3行for循环的第i次迭代之前，对每个可能的(i-1)排列，子数组A[1..i-1]包含这个(i-1)排列的概率是$(n-i+1)!/n!$</strong></p>
+<h2 id="随机排列数组">随机排列数组</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RANDOMIZE-IN-PLACE(A)</span><br><span class="line">    n = A.length</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        swap A[i] with A[RANDOM(i,n)]</span><br></pre></td></tr></table></figure>
+<p>这是一种原址随机排列算法，算法复杂度为<span class="math inline">\(O(n)\)</span>。</p>
+<h3 id="证明">证明</h3>
+<p>证明这个算法能产生一个均匀随机序列之前，我们先证明下面的循环不变式：</p>
+<p><strong>在第2-3行for循环的第i次迭代之前，对每个可能的(i-1)排列，子数组A[1..i-1]包含这个(i-1)排列的概率是<span class="math inline">\((n-i+1)!/n!\)</span></strong></p>
 <p><strong>初始化</strong>：考虑在第一次循环迭代以前的情况，此时i=1。由循环不变式可知子数组A[1..0]包含这个0序列的概率为1，循环不变式成立。</p>
-<p><strong>保持</strong>：我们假设在第i次迭代之前，每种可能的(i-1)排列出现在子数组A[1..i-1]中的概率是$(n-i+1)!/n!$，我们要说明的是在第i次迭代以后，每种可能的$i$排列出现在子数组A中的概率是$(n-i)!/n!$。</p>
-<p>我们来检查第i次迭代，考虑一个特殊的i排列，以$&lt;x_1,x_2,\dots,x_i&gt;$表示其中的元素，这个排列包含一个(i-1)排列$&lt;x_1,x_2,\dots,x_{i-1}&gt;$，如果在第i次迭代之后，$x_i$被放置到位置i，即被包含的(i-1)排列变成了i排列。</p>
-<p>记$E_1$为前(n-1)次迭代构造了(n-1)排列，记$E_2$为第i次迭代将$x_i$放置到位置i，可得：</p>
-<p>$$<br>Pr{E_{2} \cap E_{1}} = Pr{E_2 | E_1}Pr{E_1} = \frac{1}{n-i+1} \cdot \frac{(n-i+1)!}{n!} = \frac{(n-i)!}{n!}<br>$$</p>
-<p><strong>终止</strong>：当终止时，i=n+1，子数组A[1..n]给定一个n排列的概率为$(n-(n+1)+1)!/n!=1/n!$</p>
-<p>由此我们就能证明对于每种n排列，该算法给出的概率都是$1/n!$，所以该算法能产生一个均匀随机序列。</p>
+<p><strong>保持</strong>：我们假设在第i次迭代之前，每种可能的(i-1)排列出现在子数组A[1..i-1]中的概率是<span class="math inline">\((n-i+1)!/n!\)</span>，我们要说明的是在第i次迭代以后，每种可能的<span class="math inline">\(i\)</span>排列出现在子数组A中的概率是<span class="math inline">\((n-i)!/n!\)</span>。</p>
+<p>我们来检查第i次迭代，考虑一个特殊的i排列，以<span class="math inline">\(&lt;x_1,x_2,\dots,x_i&gt;\)</span>表示其中的元素，这个排列包含一个(i-1)排列<span class="math inline">\(&lt;x_1,x_2,\dots,x_{i-1}&gt;\)</span>，如果在第i次迭代之后，<span class="math inline">\(x_i\)</span>被放置到位置i，即被包含的(i-1)排列变成了i排列。</p>
+<p>记<span class="math inline">\(E_1\)</span>为前(n-1)次迭代构造了(n-1)排列，记<span class="math inline">\(E_2\)</span>为第i次迭代将<span class="math inline">\(x_i\)</span>放置到位置i，可得：</p>
+<p><span class="math display">\[
+Pr\{E_{2} \cap E_{1}\} = Pr\{E_2 | E_1\}Pr\{E_1\} = \frac{1}{n-i+1} \cdot \frac{(n-i+1)!}{n!} = \frac{(n-i)!}{n!}
+\]</span></p>
+<p><strong>终止</strong>：当终止时，i=n+1，子数组A[1..n]给定一个n排列的概率为<span class="math inline">\((n-(n+1)+1)!/n!=1/n!\)</span></p>
+<p>由此我们就能证明对于每种n排列，该算法给出的概率都是<span class="math inline">\(1/n!\)</span>，所以该算法能产生一个均匀随机序列。</p>
 
     </div>
 

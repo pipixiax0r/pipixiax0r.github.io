@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/算法/堆排序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/13/Algorithm/线性时间排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -266,7 +266,132 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2020/03/06/算法/堆排序/" class="post-title-link" itemprop="url">堆排序</a>
+                <a href="/2020/03/13/Algorithm/线性时间排序/" class="post-title-link" itemprop="url">线性时间排序</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-03-13 22:41:25 / Modified: 22:54:04" itemprop="dateCreated datePublished" datetime="2020-03-13T22:41:25+08:00">2020-03-13</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法-数据结构/" itemprop="url" rel="index"><span itemprop="name">算法/数据结构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Comments: </span>
+    
+  
+    <a href="/2020/03/13/Algorithm/线性时间排序/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/13/Algorithm/线性时间排序/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="比较排序">比较排序</h1>
+<p>在排序算法中，其实我们关注的最多的还是时间复杂度的问题，之前所提到的排序算法大部分时间复杂度都是<span class="math inline">\(O(n \lg n)\)</span>。堆排序，归并排序，以及快速排序，事实上它们都是<strong>比较排序</strong>，即通过对元素进行比较来确定元素的相对次序。</p>
+<p>之后我们会证明<strong>在最坏情况下所有的比较排序都需要做</strong><span class="math inline">\(\Omega(n \lg n)\)</span><strong>次比较</strong>。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/03/13/Algorithm/线性时间排序/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/Algorithm/堆排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pipixiax0r's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/06/Algorithm/堆排序/" class="post-title-link" itemprop="url">堆排序</a>
               
             
           </h2>
@@ -320,8 +445,8 @@
       <span class="post-meta-item-text">Comments: </span>
     
   
-    <a href="/2020/03/06/算法/堆排序/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/06/算法/堆排序/" itemprop="commentCount"></span>
+    <a href="/2020/03/06/Algorithm/堆排序/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/06/Algorithm/堆排序/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -337,9 +462,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><p><strong>(二叉)堆</strong>是一个数组，可以被看作一棵近似的完全二叉树，C语言中，堆的数据结构定义如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> heap_size;		<span class="comment">// 堆的大小</span></span><br><span class="line">	<span class="keyword">int</span> length;		<span class="comment">// 数组长度</span></span><br><span class="line">	<span class="keyword">int</span>* data;		<span class="comment">// 堆中所存放的数据</span></span><br><span class="line">&#125;heap;</span><br></pre></td></tr></table></figure>
-
+          <h1 id="堆">堆</h1>
+<p><strong>(二叉)堆</strong>是一个数组，可以被看作一棵近似的完全二叉树，C语言中，堆的数据结构定义如下： <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> heap_size;		<span class="comment">// 堆的大小</span></span><br><span class="line">	<span class="keyword">int</span> length;		<span class="comment">// 数组长度</span></span><br><span class="line">	<span class="keyword">int</span>* data;		<span class="comment">// 堆中所存放的数据</span></span><br><span class="line">&#125;heap;</span><br></pre></td></tr></table></figure></p>
 <p>需要注意这里有两个长度：堆的大小和数组的长度，整个数组中只有一部分数据是堆的数据，因此堆的大小要小于数组的长度。这样的实现方式有利于堆排序代码的编写。</p>
 <p>堆可以分为两种形式：<strong>最大堆</strong>和<strong>最小堆</strong>。</p>
 <p>在这两种堆中，结点的值都要满足，堆的性质。在最大堆中，最大堆性质是指除了在最大堆中除根以外的所有结点的值都要<strong>大于等于</strong>其父节点的值，最小堆则相反，要<strong>小于等于</strong>其父节点的值。</p>
@@ -347,7 +471,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2020/03/06/算法/堆排序/#more" rel="contents">
+              <a class="btn" href="/2020/03/06/Algorithm/堆排序/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -378,7 +502,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/算法/快速排序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/Algorithm/快速排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -395,7 +519,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2020/02/27/算法/快速排序/" class="post-title-link" itemprop="url">快速排序</a>
+                <a href="/2020/02/27/Algorithm/快速排序/" class="post-title-link" itemprop="url">快速排序</a>
               
             
           </h2>
@@ -449,8 +573,8 @@
       <span class="post-meta-item-text">Comments: </span>
     
   
-    <a href="/2020/02/27/算法/快速排序/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/27/算法/快速排序/" itemprop="commentCount"></span>
+    <a href="/2020/02/27/Algorithm/快速排序/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/27/Algorithm/快速排序/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -466,11 +590,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于<strong>分治法</strong>的排序算法，但是它是<strong>原址</strong>排序，从使用来看平均性能是归并排序的4倍左右。</p>
+          <h1 id="快速排序">快速排序</h1>
+<p>这是一种常用且优秀的排序算法，与归并排序类似，它也是一种基于<strong>分治法</strong>的排序算法，但是它是<strong>原址</strong>排序，从使用来看平均性能是归并排序的4倍左右。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2020/02/27/算法/快速排序/#more" rel="contents">
+              <a class="btn" href="/2020/02/27/Algorithm/快速排序/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -501,7 +626,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/23/算法/概率分析与随机算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/23/Algorithm/概率分析与随机算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -518,7 +643,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2020/02/23/算法/概率分析与随机算法/" class="post-title-link" itemprop="url">概率分析与随机算法</a>
+                <a href="/2020/02/23/Algorithm/概率分析与随机算法/" class="post-title-link" itemprop="url">概率分析与随机算法</a>
               
             
           </h2>
@@ -582,8 +707,8 @@
       <span class="post-meta-item-text">Comments: </span>
     
   
-    <a href="/2020/02/23/算法/概率分析与随机算法/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/23/算法/概率分析与随机算法/" itemprop="commentCount"></span>
+    <a href="/2020/02/23/Algorithm/概率分析与随机算法/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/23/Algorithm/概率分析与随机算法/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -599,13 +724,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="雇佣问题"><a href="#雇佣问题" class="headerlink" title="雇佣问题"></a>雇佣问题</h1><p>假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？</p>
-<p>该策略伪代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HIRE-ASSISTANT(n)</span><br><span class="line">    best = 0    // candidate 0 is a least-qualified dummy candidate</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        interview candidate i</span><br><span class="line">        if candidate i is better than candidate best</span><br><span class="line">            best = i</span><br><span class="line">            hire candidate i</span><br></pre></td></tr></table></figure>
+          <h1 id="雇佣问题">雇佣问题</h1>
+<p>假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？</p>
+<p>该策略伪代码如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HIRE-ASSISTANT(n)</span><br><span class="line">    best = 0    // candidate 0 is a least-qualified dummy candidate</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        interview candidate i</span><br><span class="line">        if candidate i is better than candidate best</span><br><span class="line">            best = i</span><br><span class="line">            hire candidate i</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2020/02/23/算法/概率分析与随机算法/#more" rel="contents">
+              <a class="btn" href="/2020/02/23/Algorithm/概率分析与随机算法/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -636,7 +761,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/算法/分治策略与归并排序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/Algorithm/分治策略与归并排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -653,7 +778,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2020/02/18/算法/分治策略与归并排序/" class="post-title-link" itemprop="url">分治策略与归并排序</a>
+                <a href="/2020/02/18/Algorithm/分治策略与归并排序/" class="post-title-link" itemprop="url">分治策略与归并排序</a>
               
             
           </h2>
@@ -707,8 +832,8 @@
       <span class="post-meta-item-text">Comments: </span>
     
   
-    <a href="/2020/02/18/算法/分治策略与归并排序/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/18/算法/分治策略与归并排序/" itemprop="commentCount"></span>
+    <a href="/2020/02/18/Algorithm/分治策略与归并排序/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/18/Algorithm/分治策略与归并排序/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -724,7 +849,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="分治法"><a href="#分治法" class="headerlink" title="分治法"></a>分治法</h1><h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>分治法，递归的划分问题然后解决，在每层递归中应用以下三个步骤：</p>
+          <h1 id="分治法">分治法</h1>
+<h2 id="基本思想">基本思想</h2>
+<p>分治法，递归的划分问题然后解决，在每层递归中应用以下三个步骤：</p>
 <ul>
 <li><strong>分解</strong>，把问题划分为子问题，子问题的形式与原问题一样，只是规模更小</li>
 <li><strong>解决</strong>，递归的求解出子问题，如果子问题的规模足够小(即基础情况)，则停止递归直接求解。</li>
@@ -732,140 +859,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2020/02/18/算法/分治策略与归并排序/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/算法/求解递归式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pipixiax0r's Blog">
-    </span>
-      <header class="post-header">
-
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/02/12/算法/求解递归式/" class="post-title-link" itemprop="url">求解递归式</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-02-12 12:19:28" itemprop="dateCreated datePublished" datetime="2020-02-12T12:19:28+08:00">2020-02-12</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2020-02-13 17:47:06" itemprop="dateModified" datetime="2020-02-13T17:47:06+08:00">2020-02-13</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法-数据结构/" itemprop="url" rel="index"><span itemprop="name">算法/数据结构</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Comments: </span>
-    
-  
-    <a href="/2020/02/12/算法/求解递归式/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/12/算法/求解递归式/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="递归表达式"><a href="#递归表达式" class="headerlink" title="递归表达式"></a>递归表达式</h2><p>递归表达式是非常强大的工具，它能用最简单的式子表达出复杂的问题。但是很多时候要求算法的复杂度时，递归就成了我们的障碍，因此，了解递归式的解法是有很必要的。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2020/02/12/算法/求解递归式/#more" rel="contents">
+              <a class="btn" href="/2020/02/18/Algorithm/分治策略与归并排序/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -926,7 +920,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1018,7 +1012,11 @@
         
           
         
-        <span class="site-state-item-count">28</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>

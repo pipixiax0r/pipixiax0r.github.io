@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="雇佣问题 假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？ 该策略伪代码如下： 1234567HIRE-ASSISTANT(n)    best = 0    // candidate 0 is a least-qualified dummy candidate    for">
+<meta name="keywords" content="算法导论,随机算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率分析与随机算法">
+<meta property="og:url" content="http://yoursite.com/2020/02/23/Algorithm/概率分析与随机算法/index.html">
+<meta property="og:site_name" content="Pipixiax0r&#39;s Blog">
+<meta property="og:description" content="雇佣问题 假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？ 该策略伪代码如下： 1234567HIRE-ASSISTANT(n)    best = 0    // candidate 0 is a least-qualified dummy candidate    for">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-03-13T15:18:57.422Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="概率分析与随机算法">
+<meta name="twitter:description" content="雇佣问题 假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？ 该策略伪代码如下： 1234567HIRE-ASSISTANT(n)    best = 0    // candidate 0 is a least-qualified dummy candidate    for">
+  <link rel="canonical" href="http://yoursite.com/2020/02/23/Algorithm/概率分析与随机算法/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>概率分析与随机算法 | Pipixiax0r's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pipixiax0r's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">Slow Is Fast</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/23/Algorithm/概率分析与随机算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pipixiax0r's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h2 class="post-title" itemprop="name headline">概率分析与随机算法
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-02-23 12:03:52" itemprop="dateCreated datePublished" datetime="2020-02-23T12:03:52+08:00">2020-02-23</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-13 23:18:57" itemprop="dateModified" datetime="2020-03-13T23:18:57+08:00">2020-03-13</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法-数据结构/" itemprop="url" rel="index"><span itemprop="name">算法/数据结构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Comments: </span>
+    
+  
+    <a href="/2020/02/23/Algorithm/概率分析与随机算法/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/23/Algorithm/概率分析与随机算法/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="雇佣问题">雇佣问题</h1>
+<p>假如你需要雇佣一名新的办公室助理，你雇佣一名代理每天给你推荐一个应聘者，你面试应聘者如果他比之前的优秀，裁掉之前的助理，雇佣他，并给代理一笔中介费。如何估算总的费用是多少？</p>
+<p>该策略伪代码如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HIRE-ASSISTANT(n)</span><br><span class="line">    best = 0    // candidate 0 is a least-qualified dummy candidate</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        interview candidate i</span><br><span class="line">        if candidate i is better than candidate best</span><br><span class="line">            best = i</span><br><span class="line">            hire candidate i</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="最坏情况分析">最坏情况分析</h2>
+<p>最坏情况即应聘者的质量从低到高排列，这就导致每推荐一个应聘者就要雇佣一个，并给一笔中介费，即总的费用为<span class="math inline">\(O(n)\)</span>。</p>
+<h2 id="概率分析">概率分析</h2>
+<p>为了对费用进行估算，我们需要用到概率分析，而概率分析需要对所有可能输入的分布做出假设，每种分布时间相加取平均值，最终得到目标的期望值。在雇佣问题中，我们假设每种排列出现的机率等可能，即共<span class="math inline">\(n!\)</span>种输入，每种概率都是<span class="math inline">\(\frac{1}{n!}\)</span>。</p>
+<h1 id="指示器随机变量">指示器随机变量</h1>
+<p>这是一种非常有用的随机变量，可以帮助我们简化需要对分布进行假设的这类问题。</p>
+<p>给定一个样本空间<span class="math inline">\(S\)</span>和一个事件<span class="math inline">\(A\)</span>，那么事件A对应的指示器随机变量<span class="math inline">\(I\{A\}\)</span>的定义为： <span class="math display">\[
+I\{A\}=
+\begin{cases}
+1&amp; \text{如果A发生} \\
+0&amp; \text{如果A不发生}
+\end{cases}
+\]</span> 关于指示器随机变量有一个重要的性质：给定一个样本空间<span class="math inline">\(S\)</span>和<span class="math inline">\(S\)</span>中的一个事件<span class="math inline">\(A\)</span>，设<span class="math inline">\(X_a=I\{A\}\)</span>，那么有<span class="math inline">\(E[X_A]=Pr\{A\}\)</span>(Pr{A}为事件A的概率)</p>
+<p>有了这个重要的性质，我们就能把期望和概率联系起来。</p>
+<h2 id="指示器随机变量分析雇佣问题">指示器随机变量分析雇佣问题</h2>
+<p>设随机变量<span class="math inline">\(X\)</span>为雇佣的人数，那么根据期望计算公式得： <span class="math display">\[
+E[X] = \sum_{x=1}^{n}xPr\{X=x\}
+\]</span> 想直接通过这个公式计算出期望值是困难的，我们需要利用指示器随机变量来分解。</p>
+<p>我们定义一个新变量<span class="math inline">\(X_i\)</span> <span class="math display">\[
+X_i = I\{\text{应聘者i被雇佣}\} = 
+\begin{cases}
+1&amp; \text{如果应聘者i被雇佣}\\
+0&amp; \text{如果应聘者i未被雇佣}
+\end{cases}
+\]</span> 我们还能得到： <span class="math display">\[
+X = X_1 + X_2 + \cdots + X_n
+\]</span> 根据指示器随机变量的性质可得： <span class="math display">\[
+E[X_i] = Pr\{\text{应聘者i被雇佣}\}
+\]</span> 如果应聘者<span class="math inline">\(i\)</span>被雇佣，也就说明他比前面<span class="math inline">\(i-1\)</span>个应聘者更强，即他是目前为止，即共<span class="math inline">\(i\)</span>个人中最强的，由此可得： <span class="math display">\[
+E[X_i] = \frac{1}{i}
+\]</span> 现在来计算<span class="math inline">\(E[X]\)</span> <span class="math display">\[
+E[X] = E[\sum_{i=1}^{n}X_i] = \sum_{i=1}^{n}E[X_i] \tag{1}
+\]</span> <span class="math display">\[
+E[X] = \sum_{i=1}^{n}\frac{1}{i} \tag{2}
+\]</span> <span class="math display">\[
+E[X] = \ln n + O(1) \tag{3}
+\]</span> (1)由期望的线性性质得到，(2)由上面的<span class="math inline">\(E[X_i] = \frac{1}{i}\)</span>得到，(3)是调和级数求和。</p>
+<p>最终可以得到平均情况下费用的期望是<span class="math inline">\(O(\ln n)\)</span></p>
+<h1 id="随机算法">随机算法</h1>
+<p>对于雇佣问题而言，我们想要分析其算法的平均情况，必须借助于其输入分布的信息。然而往往在实际过程中我们是无法获得分布信息的，这样就阻碍了平均情况的分析，因此我们需要用一个<strong>随机算法</strong>来使得输入分布达到我们所期望的平均。</p>
+<p>随机化雇佣策略伪代码如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">RANDOMIZED-HIRE-ASSISTANT(n)</span><br><span class="line">    randomly permute the list of candidates</span><br><span class="line">    best = 0    // candidate 0 is a least-qualified dummy candidate</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        interview candidate i</span><br><span class="line">        if candidate i is better than candidate best</span><br><span class="line">            best = i</span><br><span class="line">            hire candidate i</span><br></pre></td></tr></table></figure></p>
+<p>可以看出算法唯一的变化在于预先随机的变换了应聘者的序列。</p>
+<h2 id="随机排列数组">随机排列数组</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RANDOMIZE-IN-PLACE(A)</span><br><span class="line">    n = A.length</span><br><span class="line">    for i = 1 to n</span><br><span class="line">        swap A[i] with A[RANDOM(i,n)]</span><br></pre></td></tr></table></figure>
+<p>这是一种原址随机排列算法，算法复杂度为<span class="math inline">\(O(n)\)</span>。</p>
+<h3 id="证明">证明</h3>
+<p>证明这个算法能产生一个均匀随机序列之前，我们先证明下面的循环不变式：</p>
+<p><strong>在第2-3行for循环的第i次迭代之前，对每个可能的(i-1)排列，子数组A[1..i-1]包含这个(i-1)排列的概率是<span class="math inline">\((n-i+1)!/n!\)</span></strong></p>
+<p><strong>初始化</strong>：考虑在第一次循环迭代以前的情况，此时i=1。由循环不变式可知子数组A[1..0]包含这个0序列的概率为1，循环不变式成立。</p>
+<p><strong>保持</strong>：我们假设在第i次迭代之前，每种可能的(i-1)排列出现在子数组A[1..i-1]中的概率是<span class="math inline">\((n-i+1)!/n!\)</span>，我们要说明的是在第i次迭代以后，每种可能的<span class="math inline">\(i\)</span>排列出现在子数组A中的概率是<span class="math inline">\((n-i)!/n!\)</span>。</p>
+<p>我们来检查第i次迭代，考虑一个特殊的i排列，以<span class="math inline">\(&lt;x_1,x_2,\dots,x_i&gt;\)</span>表示其中的元素，这个排列包含一个(i-1)排列<span class="math inline">\(&lt;x_1,x_2,\dots,x_{i-1}&gt;\)</span>，如果在第i次迭代之后，<span class="math inline">\(x_i\)</span>被放置到位置i，即被包含的(i-1)排列变成了i排列。</p>
+<p>记<span class="math inline">\(E_1\)</span>为前(n-1)次迭代构造了(n-1)排列，记<span class="math inline">\(E_2\)</span>为第i次迭代将<span class="math inline">\(x_i\)</span>放置到位置i，可得：</p>
+<p><span class="math display">\[
+Pr\{E_{2} \cap E_{1}\} = Pr\{E_2 | E_1\}Pr\{E_1\} = \frac{1}{n-i+1} \cdot \frac{(n-i+1)!}{n!} = \frac{(n-i)!}{n!}
+\]</span></p>
+<p><strong>终止</strong>：当终止时，i=n+1，子数组A[1..n]给定一个n排列的概率为<span class="math inline">\((n-(n+1)+1)!/n!=1/n!\)</span></p>
+<p>由此我们就能证明对于每种n排列，该算法给出的概率都是<span class="math inline">\(1/n!\)</span>，所以该算法能产生一个均匀随机序列。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/算法导论/" rel="tag"># 算法导论</a>
+          
+            <a href="/tags/随机算法/" rel="tag"># 随机算法</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2020/02/18/Algorithm/分治策略与归并排序/" rel="next" title="分治策略与归并排序">
+                <i class="fa fa-chevron-left"></i> 分治策略与归并排序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+              <a href="/2020/02/27/Algorithm/快速排序/" rel="prev" title="快速排序">
+                快速排序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/pipixiax0r" title="GitHub &rarr; https://github.com/pipixiax0r" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:pipixiax0r@gmail.com" title="E-Mail &rarr; mailto:pipixiax0r@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://echobiscuit.github.io/" title="https://echobiscuit.github.io/" rel="noopener" target="_blank">echobiscuit</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#雇佣问题"><span class="nav-number">1.</span> <span class="nav-text">雇佣问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最坏情况分析"><span class="nav-number">1.1.</span> <span class="nav-text">最坏情况分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概率分析"><span class="nav-number">1.2.</span> <span class="nav-text">概率分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指示器随机变量"><span class="nav-number">2.</span> <span class="nav-text">指示器随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#指示器随机变量分析雇佣问题"><span class="nav-number">2.1.</span> <span class="nav-text">指示器随机变量分析雇佣问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机算法"><span class="nav-number">3.</span> <span class="nav-text">随机算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#随机排列数组"><span class="nav-number">3.1.</span> <span class="nav-text">随机排列数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#证明"><span class="nav-number">3.1.1.</span> <span class="nav-text">证明</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '1Po8oaTgrzNm59bjQLSIOAEP-gzGzoHsz',
+    appKey: '9mTHm5dLP6pgO7XRMa4GBMda',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+</body>
+</html>

@@ -3,9 +3,7 @@
   <entry>
     <title>利用GitHub Pages和Hexo搭建个人主页</title>
     <url>/2022/06/gitpage/</url>
-    <content><![CDATA[<h2 id="什么是github-pages">什么是Github Pages？</h2>
-<p>GitHub Pages是GitHub推出的一个用于快速搭建个人主页的方案，相较于自己买服务器建站，它免去了购买服务器域名的开销，而对于CSDN和博客园这种公开的社区，它没有广告充值VIP的操作(CSDN)，更像属于个人的网站。</p>
-<h2 id="什么是hexo">什么是Hexo？</h2>
+    <content><![CDATA[<p>GitHub Pages是GitHub推出的一个用于快速搭建个人主页的方案，相较于自己买服务器建站，它免去了购买服务器域名的开销，而对于CSDN和博客园这种公开的社区，它没有广告充值VIP的操作(CSDN)，更像属于个人的网站。</p>
 <blockquote>
 <p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
 </blockquote>
@@ -38,7 +36,8 @@
 <p>首先我们通过Hexo的init指令新建了一个项目的文件夹，然后切换到这个文件夹的目录下。完成后文件夹目录的结构如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
 <h3 id="文件说明">文件说明</h3>
-<h4 id="config.yml-这个文件存储了网站的基本配置信息">_config.yml 这个文件存储了网站的基本配置信息。</h4>
+<h4 id="config.yml">_config.yml</h4>
+<p>这个文件存储了网站的基本配置信息。</p>
 <h4 id="source">source</h4>
 <p>这个文件夹存储了Markdown，以及图片等各种资源，我们编写好的Markdown文件会存储在这里，用于生成静态网页。</p>
 <h4 id="themes">themes</h4>
@@ -55,9 +54,9 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
 <p>生成静态文件，即把我们写的Markdown文件结合配置生成为网页文件。可以简写为<code>hexo g</code></p>
 <h4 id="server">server</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>在终端输入 <img src="/2022/06/gitpage/server.png" class=""></p>
-<p>打开浏览器http://localhost:4000，就能看到网站 <img src="/2022/06/gitpage/browser.png" class=""></p>
+<p>打开浏览器<a href="http://localhost:4000">http://localhost:4000</a>，就能看到网站 <img src="/2022/06/gitpage/browser.png" class=""></p>
 <p>效果可能与图片中有所不同，这是因为我使用了别的主题做了一些其他的配置。这个命令也可以简写为<code>hexo s</code></p>
 <h4 id="deploy">deploy</h4>
 <p>部署网站。</p>
@@ -87,8 +86,7 @@
   <entry>
     <title>什么是Inductive Learning 和 Transductive Learning？</title>
     <url>/2022/09/transductive-learning/</url>
-    <content><![CDATA[<h2 id="简介">简介</h2>
-<p>一般所说的学习方式是指的Inductive Learning，将训练集<span class="math inline">\(X_{train}, y_{train}\)</span>和测试集<span class="math inline">\(X_{test}, y_{test}\)</span>划分开，而Transductive Learning在训练的过程中利用了<span class="math inline">\(X_{test}\)</span>的信息。</p>
+    <content><![CDATA[<p>一般所说的学习方式是指的Inductive Learning，将训练集<span class="math inline">\(X_{train}, y_{train}\)</span>和测试集<span class="math inline">\(X_{test}, y_{test}\)</span>划分开，而Transductive Learning在训练的过程中利用了<span class="math inline">\(X_{test}\)</span>的信息。</p>
 <span id="more"></span>
 <h2 id="优缺点对比">优缺点对比</h2>
 <p>对于Inductive的方法而言，任何需要预测的数据都可以直接进行推导，因为在训练过程中也只用到了<span class="math inline">\(X_{train}\)</span>的数据，因此得到的模型是不需要改变的，但是缺陷是在数据增多之后也只能用到原来的数据</p>
@@ -105,10 +103,9 @@
       </tags>
   </entry>
   <entry>
-    <title>贝叶斯个性化排序</title>
+    <title>贝叶斯个性化排序BPR</title>
     <url>/2022/09/BPR/</url>
-    <content><![CDATA[<h2 id="简介">简介</h2>
-<p>贝叶斯个性化排序(BPR, Bayesian Personalized Ranking)是推荐系统中常用的一种推荐算法，它主要采用用户的隐式反馈(点击、收藏等)作为特征，通过对问题进行贝叶斯分析从而对item进行排序。 <span id="more"></span></p>
+    <content><![CDATA[<p>贝叶斯个性化排序(BPR, Bayesian Personalized Ranking)是推荐系统中常用的一种推荐算法，它主要采用用户的隐式反馈(点击、收藏等)作为特征，通过对问题进行贝叶斯分析从而对item进行排序。 <span id="more"></span></p>
 <h2 id="排序推荐算法分类">排序推荐算法分类</h2>
 <p>排序推荐算法可以大致被分为三类：</p>
 <ol type="1">
@@ -207,9 +204,85 @@ L_{BPR} = -\frac{1}{N_{s}}\sum_{j=1}^{N_s}\log \sigma(r_i - r_j)
 </ol>
 ]]></content>
       <tags>
-        <tag>BPR</tag>
-        <tag>贝叶斯个性化排序</tag>
         <tag>推荐系统</tag>
+        <tag>评价指标</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>归一化折损累计增益NDCG</title>
+    <url>/2022/09/NDGC/</url>
+    <content><![CDATA[<p>归一化折损累计增益(<em>NDCG, Normalized Discounted Cumulative Gain</em>)是一种针对排序的评价指标，用于评价排序的准确性。在推荐系统中通常为某用户返回一个物品列表，假设列表长度为<span class="math inline">\(K\)</span>，这时可以用<span class="math inline">\(NDCG@K\)</span>评价该排序列表与用户真实交互列表的差距。 <span id="more"></span></p>
+<h2 id="计算">计算</h2>
+<h3 id="累计增益cg">累计增益CG</h3>
+<p><span class="math display">\[
+CG_{K} = \sum_{i=1}^{K}r_{i}
+\]</span></p>
+<p><span class="math inline">\(CG_K\)</span>(<span class="math inline">\(CG@K\)</span>)是推荐列表中所有物品的相关性综合，<span class="math inline">\(r\)</span>表示相似性分数，对应数据集中的打分，比如在显式的打分数据集中，分数取值就是<span class="math inline">\(r \in [0,5]\)</span>，而在隐式数据集中打分的取值就是<span class="math inline">\(r \in \{0,1\}\)</span>。</p>
+<h3 id="折损累计增益dcg">折损累计增益DCG</h3>
+<p>DCG在CG的基础上提出了在推荐列表的靠后的位置出现了相关性排名较高的物品时，应该对评分给予惩罚。</p>
+<p><span class="math display">\[
+DCG_K = \sum_{i=1}^{k} \frac{r_i}{\log{(i+1)}}
+\]</span></p>
+<p>还有一种比较常用的公式：</p>
+<p><span class="math display">\[
+DCG_K = \sum_{i=1}^{K} \frac{2^{r_i}-1}{\log{(i+1)}}
+\]</span></p>
+<p>后一个公式在工业中被广泛使用，如多数的搜索公司和 Kaggle 等数据科学竞赛平台等</p>
+<p>当相关性得分<span class="math inline">\(r \in \{0,1\}\)</span>时，上述两个公式等价。</p>
+<h2 id="归一化折损累计增益ndcg">归一化折损累计增益nDCG</h2>
+<p><span class="math display">\[
+nDCG_k = \frac{DCG_k}{iDCG_k}
+\]</span></p>
+<p><span class="math inline">\(iDCG_k\)</span>时最大累计增益，其计算方法是将所有的物品根据真实数据集上的分数进行排序，然后取前<span class="math inline">\(K\)</span>个进行计算<span class="math inline">\(DCG\)</span>所能得到的最大分数。</p>
+<p><span class="math display">\[
+IDCG_K = \sum_{i=1}^{|REL_K|} \frac{r_i}{\log(i+1)}
+\]</span></p>
+<p>其中<span class="math inline">\(REL_K\)</span>代表按相关性从高到低的真实列表中取前<span class="math inline">\(K\)</span>个物品</p>
+<h2 id="参考">参考</h2>
+<ol type="1">
+<li><a href="https://zhuanlan.zhihu.com/p/136199536">知乎 - Ranking算法评测指标之CG、DCG、NDCG</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/366760688">知乎 - 推荐系统评价指标nDCG到底如何实现</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>推荐系统</tag>
+        <tag>评价指标</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyTorch复现</title>
+    <url>/2022/09/PyTorch%E5%A4%8D%E7%8E%B0/</url>
+    <content><![CDATA[<p>通过一些设置我们可以让基于PyTorch的实验结果是可复现的</p>
+<span id="more"></span>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">same_seed</span>(<span class="params">seed</span>): </span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;Fixes random number generator seeds for reproducibility.&#x27;&#x27;&#x27;</span></span><br><span class="line">    torch.backends.cudnn.deterministic = <span class="literal">True</span></span><br><span class="line">    torch.backends.cudnn.benchmark = <span class="literal">False</span></span><br><span class="line">    np.random.seed(seed)</span><br><span class="line">    torch.manual_seed(seed)</span><br><span class="line">    <span class="keyword">if</span> torch.cuda.is_available():</span><br><span class="line">        torch.cuda.manual_seed_all(seed)</span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li>当<code>torch.backends.cudnn.deterministic</code>为<code>True</code>时，cuDNN只使用确定性的卷积算法。</li>
+<li>当<code>torch.backends.cudnn.benchmark</code>为<code>True</code>时，会让cuDNN对多个卷积算法进行基准测试，从中选出最快的。</li>
+<li><code>np.random.seed()</code>, <code>torch.manual_seed()</code>, <code>torch.cuda.manual_seed_all()</code>都是在对种子进行设置，需要注意的是，如果要使用GPU加速，那么cuda需要单独设置种子。</li>
+<li>cuDNN(CUDA Deep Neural Network)是由<strong>Nvidia</strong>提供的用于深度神经网络构建的GPU加速库。</li>
+<li>torch.backends这个库包含了PyTorch的各种后端行为控制。</li>
+</ol>
+<h2 id="数据集划分">数据集划分</h2>
+<p>数据集划分的时候我们也希望能够设定随机种子：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> random_split</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">train_valid_split</span>(<span class="params">data_set, valid_ratio, seed</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;Split provided training data into training set and validation set&#x27;&#x27;&#x27;</span></span><br><span class="line">    valid_set_size = <span class="built_in">int</span>(valid_ratio * <span class="built_in">len</span>(data_set)) </span><br><span class="line">    train_set_size = <span class="built_in">len</span>(data_set) - valid_set_size</span><br><span class="line">    train_set, valid_set = random_split(data_set, [train_set_size, valid_set_size], generator=torch.Generator().manual_seed(seed))</span><br><span class="line">    <span class="keyword">return</span> np.array(train_set), np.array(valid_set)</span><br></pre></td></tr></table></figure>
+<p><code>random_split()</code>中的<code>generator</code>参数是用于随机排列的生成器，使用一样的seed就能保证，每次划分的结果一致。</p>
+<h3 id="class-torch.generator">class torch.Generator()</h3>
+<p>Generator类会返回一个对象，用于管理伪随机数的生成。</p>
+]]></content>
+      <tags>
+        <tag>PyTorch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyTorch数据集构建</title>
+    <url>/2022/09/PyTorch%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9E%84%E5%BB%BA/</url>
+    <content><![CDATA[<p>在Pytorch中，训练和验证过程一般都要用到<code>DataLoader</code>类来装载数据集，它会返回一个可迭代对象用于训练和验证。<code>DataLoader</code>需要的对象是<code>Data</code>类型，定义方法如下：</p>
+<span id="more"></span>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyDataset</span>(<span class="title class_ inherited__">Dataset</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    x: Features.</span></span><br><span class="line"><span class="string">    y: Targets, if none, do prediction.</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, x, y=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="keyword">if</span> y <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self.y = y</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.y = torch.FloatTensor(y)</span><br><span class="line">        self.x = torch.FloatTensor(x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, idx</span>):</span><br><span class="line">        <span class="keyword">if</span> self.y <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> self.x[idx]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.x[idx], self.y[idx]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.x)</span><br></pre></td></tr></table></figure>
+<p>其中<code>__getitem__</code>和<code>__len__</code>是必须要实现的，对于可以以顺序表存储的数据都可以使用以上方式存储。而对于难以随机读取或者开销过大的数据(例如从数据库、远程服务器中读取数据)，可以用<code>IterableDataset</code>。</p>
+]]></content>
+      <tags>
+        <tag>PyTorch</tag>
       </tags>
   </entry>
 </search>

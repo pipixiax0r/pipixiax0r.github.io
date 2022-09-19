@@ -211,7 +211,7 @@ L_{BPR} = -\frac{1}{N_{s}}\sum_{j=1}^{N_s}\log \sigma(r_i - r_j)
   <entry>
     <title>归一化折损累计增益NDCG</title>
     <url>/2022/09/NDGC/</url>
-    <content><![CDATA[<p>归一化折损累计增益(<em>NDCG, Normalized Discounted Cumulative Gain</em>)是一种针对排序的评价指标，用于评价排序的准确性。在推荐系统中通常为某用户返回一个物品列表，假设列表长度为<span class="math inline">\(K\)</span>，这时可以用<span class="math inline">\(NDCG@K\)</span>评价该排序列表与用户真实交互列表的差距。 <span id="more"></span></p>
+    <content><![CDATA[<p>归一化折损累计增益(NDCG, Normalized Discounted Cumulative Gain)是一种针对排序的评价指标，用于评价排序的准确性。在推荐系统中通常为某用户返回一个物品列表，假设列表长度为<span class="math inline">\(K\)</span>，这时可以用<span class="math inline">\(NDCG@K\)</span>评价该排序列表与用户真实交互列表的差距。 <span id="more"></span></p>
 <h2 id="计算">计算</h2>
 <h3 id="累计增益cg">累计增益CG</h3>
 <p><span class="math display">\[
